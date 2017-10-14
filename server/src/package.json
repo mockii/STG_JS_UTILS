@@ -1,0 +1,22 @@
+{
+  "name": "stgwebutils-server-oauth",
+  "version": "0.1.65",
+  "description": "node app",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Compass Group"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express-session": "1.14.2",
+    "promise": "7.1.1",
+    "replacestream": "4.0.2",
+    "request": "2.79.0",
+    "simple-oauth2": "0.2.1",
+    "crypto-js": "^3.1.6"
+  }
+}

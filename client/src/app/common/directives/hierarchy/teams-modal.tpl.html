@@ -1,0 +1,35 @@
+
+<!-- TEAM SELECTION MODAL -->
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="teamsController.close()"></button>
+        <h4 class="modal-title">Team Selection</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div stg-ui-grid get-grid-options="teamsController.gridOptions" get-grid-data="teamsController.getGridData"></div>
+
+                <style>
+                    .ui-grid {
+                        height: 300px !important;
+                    }
+                    .ui-grid-row, .ui-grid-cell, .ui-grid-vertical-bar {
+                        height: 41px !important;
+                    }
+                </style>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="teamsController.close()">Close</button>
+        <button type="button" class="btn blue" ng-click="teamsController.submit()"
+                ng-disabled="teamsController.mySelectedRows.length === 0 ? true : false">Submit
+        </button>
+    </div>
+</div>
+<!-- END TEAM SELECTION MODAL -->
+

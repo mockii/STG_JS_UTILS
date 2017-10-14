@@ -1,0 +1,18 @@
+<div class="page-head">
+    <div class="container-fluid stg-page-header" ng-show="pageHeaderController.showPageHeader()">
+        <div class="page-title">
+            <h1 ng-class="pageHeaderController.backButton ? 'stg-page-header-title' : 'stg-page-header-title-no-back-button'">
+                <div ng-class="pageHeaderController.backButton ? 'btn btn-outline btn-default btn-circle btn-sm stg-page-header-btn-circle' : ''"
+                     ng-show="pageHeaderController.backButton"
+                     ng-click="pageHeaderController.onBackClick($event)">
+                    <i ng-class="pageHeaderController.backButton ? 'fa fa-reply stg-page-header-btn-circle-icon' : ''" aria-hidden="true"></i>
+                </div>
+
+                <span> {{ pageHeaderController.currentPageTitle() }}</span>
+                <small>{{ pageHeaderController.currentPageSubTitle() }}</small>
+            </h1>
+        </div>
+        <div id="rightContent" class="page-right">
+        </div>
+    </div>
+</div>

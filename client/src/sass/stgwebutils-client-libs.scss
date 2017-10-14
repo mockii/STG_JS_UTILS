@@ -1,0 +1,426 @@
+@import "compass/css3";
+@import "common/variables";
+@import "common/mixins";
+
+input {
+  border: 1px solid $input-border-color;
+}
+
+input[readonly] {
+  background-color: $read-only-background-color;
+  border: 1px solid $input-border-color;
+}
+
+input[type=text] {
+  min-height: 25px;
+}
+
+select:disabled {
+  background-color: $read-only-background-color;
+}
+
+.unsupportedBrowser {
+  padding-top: 100px;
+  margin: auto;
+
+  .image {
+    margin-left: auto;
+    margin-right: auto;
+    width: 43px;
+    height: 167px;
+    padding-top: 50px;
+  }
+  .text {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+    padding-top: 15px;
+  }
+}
+
+body {
+  font-size: 12px;
+}
+
+.form-control, .btn {
+  font-size: 12px;
+}
+
+@import "templates/alertNotification";
+@import "templates/newsNotification";
+@import "templates/maintenanceNotification";
+@import "templates/compassToastr";
+@import "templates/modalDialog";
+@import "templates/stgHeader";
+@import "templates/stgTabs";
+@import "templates/stgUiGrid";
+@import "templates/treeview";
+@import "templates/stgHierarchySelectionButton";
+@import "templates/userAdministration";
+
+.oauthRenewModal {
+
+  z-index: 10052 !important;
+
+  .modal-dialog {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+  }
+
+  .modal-content {
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .oauth_modal {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+
+    border: none;
+  }
+
+  #oauthIFrame {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.page-head .page-right {
+  float: right;
+}
+
+.page-header-menu.fixed {
+  z-index: 1000 !important;
+}
+
+.stg-modal-dialog {
+  .modal-body {
+    height: inherit;
+  }
+  .stg-modal-dialog-dont-show {
+    margin-bottom: 0;
+    padding-top: 11px;
+  }
+}
+
+.stgTimer {
+  float: right;
+  padding-right: 5px;
+  @include transition-property(padding-right);
+  @include transition-duration(.25s);
+
+  &.adjustForScrollToTop {
+    padding-right: 45px;
+    @include transition-property(padding-right);
+    @include transition-duration(.25s);
+  }
+}
+
+.page-container {
+  margin-bottom: 50px;
+}
+
+/* Fixed Page Footer */
+.page-footer-fixed .page-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  bottom: 0;
+}
+
+.page-footer-inner {
+  padding-left: 5px;
+}
+
+.scroll-to-top {
+  z-index: 1010;
+}
+
+/* End Fixed Footer */
+
+.fa-2x {
+  font-size: 2em !important;
+}
+
+.fa-3x {
+  font-size: 3em !important;
+}
+
+.fa-4x {
+  font-size: 4em !important;
+}
+
+.fa-5x {
+  font-size: 5em !important;
+}
+
+.ng-toast {
+  z-index: 12000;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+// BLOCK UI CSS - BEGIN
+*[class^='col-'] .block-ui-container {
+  margin-left: 15px;
+  margin-right: -15px;
+}
+
+.block-ui-container {
+  z-index: 500;
+
+  .loader-wrapper {
+    height: 100%;
+    width: 100%;
+
+    background: rgba(255, 255, 255, .7);
+
+    .loader {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      margin: 0 auto;
+      width: 100px;
+
+      z-index: 10051;
+
+      .bounce1, .bounce2, .bounce3 {
+        background: blueviolet;
+      }
+    }
+  }
+}
+// BLOCK UI CSS - END
+
+
+// PAGE HEADER - BEGIN
+@media (min-width: 992px) {
+  .page-header {
+    height: 0;
+  }
+
+  .page-header-menu {
+    height: 35px;
+  }
+
+  .page-header-menu-fixed-now .page-container {
+    padding-top: 35px;
+  }
+
+  .page-header .page-header-top {
+    height: 50px;
+  }
+
+  .page-header .page-header-top .top-menu {
+    margin: 0 0 0 0;
+  }
+
+  .page-header .page-header-menu {
+    height: 35px;
+  }
+
+  .page-header .page-header-menu .hor-menu .navbar-nav > li > a {
+    height: 35px;
+    padding: 7px 18px 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-header .page-header-top .app-search {
+    width: 100%;
+    margin-right: 0px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header .page-header-top .top-menu {
+    margin-top: 0px !important;
+  }
+}
+
+.page-header .page-header-top .page-logo .logo-default {
+  margin: 0 10px 0 0;
+}
+
+.page-header .page-header-top .page-logo {
+  margin: 0 0 0 0;
+  padding-top: 10px;
+  padding-left: 15px;
+  width: auto;
+  height: 50px;
+}
+
+.page-header .page-header-top .page-logo a {
+  font-size: 26px;
+  color: #7ac142;
+}
+
+.page-header .page-header-top .page-logo a {
+  text-decoration: none;
+}
+
+.page-header .page-header-top .app-search {
+  float:  right;
+  margin-right: 10px;
+}
+
+@media (max-width: 991px) {
+  .page-content {
+    padding-top: 15px;
+  }
+}
+
+.page-header .page-header-top .menu-toggler {
+  background-image: none !important;
+  position: relative;
+  overflow: hidden;
+  margin: 15px 12px 0px 0px;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+}
+.page-header .page-header-top .menu-toggler span {
+  -webkit-transition: -webkit-transform .3s;
+  transition: transform .3s;
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 7px;
+  right: 7px;
+  height: 3.3px;
+  background: #BFBFBF;
+}
+
+.page-header .page-header-top .menu-toggler.active span,
+.page-header .page-header-top .menu-toggler.active span::after,
+.page-header .page-header-top .menu-toggler.active span::before {
+  background-color: #4db3a4;
+}
+
+.page-header .page-header-top .menu-toggler.active span {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.page-header .page-header-top .menu-toggler span::before {
+  top: -8px;
+}
+
+.page-header .page-header-top .menu-toggler span::after,
+.page-header .page-header-top .menu-toggler span::before {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 3.33px;
+  background-color: #BFBFBF;
+  content: "";
+}
+.page-header .page-header-top .menu-toggler span::after {
+  bottom: -8px;
+}
+
+.page-header .page-header-top .menu-toggler span::after,
+.page-header .page-header-top .menu-toggler span::before {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 3.33px;
+  background-color: #BFBFBF;
+  content: "";
+}
+
+
+.page-header {
+  height: inherit;
+}
+
+/** FOOTER **/
+
+.page-footer {
+  height: 35px;
+  padding-top: 10px;
+}
+
+.page-footer > .container-fluid {
+  vertical-align: middle;
+}
+
+.scroll-to-top {
+  bottom: 0;
+}
+
+.scroll-to-top > i {
+  font-size: 24px;
+}
+// PAGE HEADER - END
+
+
+.modal-open {
+  overflow-y: hidden !important;
+}
+
+/* Form Validation */
+.input-icon.right>i {
+  right: 24px;
+}
+
+.input-group > i.custom-icon {
+  right: 45px !important;
+}
+/* End */
+
+/* STG PAGE HEADER START */
+
+.page-head .page-title {
+  padding: 15px;
+}
+
+
+.stg-page-header-btn-circle {
+  width: 25px;
+  height: 25px;
+  border-color: #3598d6;
+  padding-top: 5px;
+  margin-left: -10px;
+}
+
+.stg-page-header-btn-circle-icon {
+  margin-left: -7px;
+  color: #3598d6 !important;
+  font-size: 15px !important;
+}
+
+.stg-page-header-title-no-back-button{
+  margin-top: 10px;
+  margin-left: -10px;
+}
+
+/* STG PAGE HEADER END */

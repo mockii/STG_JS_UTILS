@@ -1,0 +1,12 @@
+### TFS Ignore 0
+# Ignored files and folders will not be committed, but may be modified during
+# accept or update.
+
+.idea
+.sass-cache
+coverage
+dist
+karma-tests
+node_modules
+DS_Store
+*.iml

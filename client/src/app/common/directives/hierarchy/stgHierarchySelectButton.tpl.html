@@ -1,0 +1,29 @@
+
+<div class="dropdown">
+    <button type="button" class="btn btn-default dropdown-toggle form-control hierarchy-selection-button" data-toggle="dropdown" >{{ hirSelectBtnCtrl.selectedTeamDisplayName || 'Select Teams'}}
+        <span class="bs-caret"><span class="caret"></span></span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-right hold-on-click hierarchy-selection-dropdown" role="menu">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-blue uppercase bold">
+                        Hierarchy
+                        <button type="button" class="btn btn-default pull-right " ng-click="hirSelectBtnCtrl.openTeamsModal()">Search<i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <stg-hierarchy-tree
+                ref-id="hirSelectBtnCtrl.refId"
+                fetch-children-every-time="hirSelectBtnCtrl.fetchChildrenEveryTime"
+                enable-multi-select="hirSelectBtnCtrl.enableMultiSelect"
+                select-global-selected-team-by-default="hirSelectBtnCtrl.selectGlobalSelectedTeamByDefault"
+                broadcast-empty-selection="hirSelectBtnCtrl.broadcastEmptySelection"
+                sync-global-team-selection-on-close="hirSelectBtnCtrl.synGlobalTeamSelectionOnClose"
+                disable-tree-toggle="hirSelectBtnCtrl.disableTreeToggle"
+                get-child-teams-fn="hirSelectBtnCtrl.getChildTeamsFn()"
+        ></stg-hierarchy-tree>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+section {
+  position: absolute;
+  top: 52px;
+  bottom: 20px;
+  left: 0px;
+  right: 0px;
+
+  overflow: scroll;
+}
+
+.navbar {
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+.navbar-brand {
+  padding: 0px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+footer {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  height: 30px;
+  padding: 5px;
+
+  background-color: #f8f8f8;
+  border: 1px solid #e7e7e7;
+}
+
+.footerContainer {
+  width: 100%;
+}
+
+.copyright {
+  float: left;
+  font-size: 11px;
+  padding-top: 2px;
+}
+
+.timer {
+  float: right;
+  padding-right: 5px;
+}
+
+.logout {
+  float: right;
+  padding-right: 5px;
+  padding-top: 15px;
+}
+
+.oauthRenewModal .modal-dialog {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+
+  width: 100%;
+  height: 100%;
+
+  margin-top: 0px;
+}
+
+.oauthRenewModal .modal-content {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+
+  width: 100%;
+  height: 100%;
+}
+
+.oauthRenewModal iframe {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  height: 100%;
+  width: 100%;
+}
+
+.oauthRenewModal .form-row {
+  margin-bottom: 5px;
+}
+
+.oauthRenewModal .form-group {
+  margin-bottom: 0px;
+}
+
+.oauthRenewModal .errorText {
+  color: red;
+}
+
+.oauthRenewModal label {
+  cursor: pointer;
+}
+

@@ -1,0 +1,22 @@
+angular.module('common.directives', [
+    'common.directives.ModalDialog',
+    'common.directives.RBAC',
+    'common.directives.STGHeader',
+    'common.directives.STGFooter',
+    'common.directives.pages.STGPageHeader',
+    'common.directives.utilities.SpyStyle',
+    'common.directives.utilities.SpinnerBar',
+    'common.directives.inputs',
+    'common.directives.anchors.aDisabled',
+    'common.directives.treeview',
+    'common.directives.hierarchy.STGHierarchyTree',
+    'common.directives.hierarchy.STGHierarchySelectButton',
+    'common.directives.scroll',
+    'common.directives.iframeResizer',
+    'common.directives.STGUIGrid',
+    'common.directives.ShowEmptyMsg',
+    'common.directives.teamDisplayPath',
+    'common.directives.selectPicker',
+    'common.directives.formValidation',
+    'common.directives.stgGoogleMapsAutocomplete'
+]);

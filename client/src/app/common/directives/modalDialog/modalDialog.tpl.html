@@ -1,0 +1,34 @@
+<div class="stg-modal-dialog">
+    <div class="modal-header">
+        <h4 class="modal-title">{{ ::dialogController.title }}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 stg-modal-dialog-text" ng-if="!dialogController.bodyHTML">
+                    {{ dialogController.bodyText }}
+                </div>
+                <div class="col-md-12" ng-if="dialogController.bodyHTML" ng-bind-html="dialogController.bodyHTML"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-md-12">
+                <label ng-if="dialogController.showDontShow" class="pull-left stg-modal-dialog-dont-show">
+                    <input type="checkbox" ng-model="dialogController.dontShow"/>Don't show again
+                </label>
+                <button ng-if="!dialogController.hideCancelButton"
+                        type="button"
+                        class="btn btn-default"
+                        ng-click="dialogController.cancelSelected()">
+                    {{ dialogController.cancelText }}
+                </button>
+                <button type="button" class="btn blue" ng-click="dialogController.okSelected()" ng-disabled="taskForm.$invalid">
+                    {{ dialogController.okText }}
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>

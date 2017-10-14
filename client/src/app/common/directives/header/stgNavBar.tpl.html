@@ -1,0 +1,29 @@
+<!-- BEGIN HEADER MENU -->
+<div class="page-header-menu">
+    <div class="container-fluid">
+        <!-- BEGIN HEADER SEARCH BOX -->
+        <form ng-if="!hasTranscludedContent" class="search-form" action="extra_search.html" method="GET">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="query">
+				<span class="input-group-btn">
+				<a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+				</span>
+            </div>
+        </form>
+        <div ng-if="hasTranscludedContent" ng-transclude></div>
+        <!-- END HEADER SEARCH BOX -->
+        <!-- BEGIN MEGA MENU -->
+        <!-- DOC: Apply "hor-menu-light" class after the "hor-menu" class below to have a horizontal menu with white background -->
+        <!-- DOC: Remove dropdown-menu-hover and data-close-others="true" attributes below to disable the dropdown opening on mouse hover -->
+        <div class="hor-menu">
+            <ul class="nav navbar-nav">
+                <li ng-repeat="item in navBarCtrl.menuItems" ui-sref-active="active">
+                    <a ng-click="navBarCtrl.navItemClick(item)"
+                       stg-secured-object="{{ item.securedObjectName }}">{{ item.pageName }}</a>
+                </li>
+            </ul>
+        </div>
+        <!-- END MEGA MENU -->
+    </div>
+</div>
+<!-- END HEADER MENU -->

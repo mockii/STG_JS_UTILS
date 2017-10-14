@@ -1,0 +1,23 @@
+{
+  "name": "stgwebutils-server",
+  "author": {
+    "name":"Compass Group"
+  },
+  "version": "0.1.0-1",
+  "private": true,
+  "description": "Angular common server/node framework for Compass Group STG Digital Products",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd src && npm install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "src/index.js"
+  },
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-copy": "~0.8.0",
+    "grunt-contrib-jshint": "~0.2.0",
+    "grunt-exec": "^0.4.6",
+    "jsonfile": "^2.2.3"
+  }
+}

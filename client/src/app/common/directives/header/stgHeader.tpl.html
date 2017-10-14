@@ -1,0 +1,199 @@
+<!-- BEGIN HEADER TOP -->
+<div class="page-header-top container-fluid">
+    <div class="row">
+
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <a ui-sref="{{ headerCtrl.logoState }}"><img ng-show="headerCtrl.logo" ng-src="{{ headerCtrl.logo }}" alt="logo" class="logo-default">{{ headerCtrl.logoText }}</a>
+        </div>
+        <!-- END LOGO -->
+
+
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler" ng-class="{'active': headerCtrl.isActive}" ng-click="headerCtrl.activeButton()"><span></span></a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+
+        <!-- BEGIN TOP NAVIGATION MENU -->
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+
+                <!-- BEGIN NOTIFICATION DROPDOWN -->
+                <li class="dropdown dropdown-extended dropdown-dark dropdown-notification"
+                    id="header_notification_bar"
+                    ng-show="headerCtrl.notifications">
+                    <a href="javascript:;" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
+                        <i class="icon-bell"></i>
+                        <span class="badge badge-default">{{ headerCtrl.newNotifications.length }}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="external">
+                            <h3>There are currently {{ headerCtrl.notifications.length }} notifications</h3>
+                        </li>
+                        <li>
+                            <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
+                                <li ng-repeat="notification in headerCtrl.notifications track by $index">
+                                    <a ng-click="headerCtrl.showMessages(headerCtrl.notifications, $index)">
+                                        <span class="time">{{ notification.time }}</span>
+                                        <span class="details">
+                                            <span class="label label-sm label-icon"
+                                                  ng-class="headerCtrl.getNotificationIconStyle(notification)">
+                                                <i ng-class="notification.iconClass"></i>
+                                            </span>
+                                            {{ notification.label }}
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <!-- END NOTIFICATION DROPDOWN -->
+                <!-- BEGIN TODO DROPDOWN -->
+                <li class="dropdown dropdown-extended dropdown-dark dropdown-tasks" id="header_task_bar"
+                    ng-show="headerCtrl.tasks">
+                    <a href="javascript:;" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
+                        <i class="icon-calendar"></i>
+                        <span class="badge badge-default">{{ headerCtrl.tasks.length }}</span>
+                    </a>
+                    <ul class="dropdown-menu extended tasks">
+                        <li class="external">
+                            <h3>You have <strong>{{ headerCtrl.tasks.length }} pending</strong> tasks</h3>
+                            <a href="javascript:;">view all</a>
+                        </li>
+                        <li>
+                            <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
+                                <li ng-repeat="task in headerCtrl.tasks track by $index">
+                                    <a ui-sref="{{ task.state }}">
+                                        <span class="task">
+                                            <span class="desc">{{ task.label }}</span>
+                                            <span class="percent">{{ task.percentComplete }}%</span>
+                                        </span>
+                                        <span class="progress">
+                                            <span style="width: {{ task.percentComplete }}%" ng-class="headerCtrl.getTaskIconStyle(task)"
+                                                  aria-valuenow="{{ task.percentComplete }}"
+                                                  aria-valuemin="0"
+                                                  aria-valuemax="100">
+                                                <span class="sr-only">{{ task.percentComplete }}% Complete</span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END TODO DROPDOWN -->
+                <li class="droddown dropdown-separator"
+                        ng-show="headerCtrl.notifications || headerCtrl.tasks">
+                    <span class="separator"></span>
+                </li>
+
+                <!-- BEGIN INBOX DROPDOWN -->
+                <li class="dropdown dropdown-extended dropdown-dark dropdown-inbox" id="header_inbox_bar"
+                        ng-show="headerCtrl.inbox">
+                    <a href="javascript:;" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
+                        <span class="circle">{{ headerCtrl.inbox.length }}</span>
+                        <span class="corner"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="external">
+                            <h3>You have <strong>{{ headerCtrl.inbox.length }} New</strong> Messages</h3>
+                            <a href="javascript:;">view all</a>
+                        </li>
+                        <li>
+                            <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
+                                <li ng-repeat="item in headerCtrl.inbox">
+                                    <a ui-sref="inbox({ messageId: item.id })">
+                                        <span class="photo"><img ng-src="{{ item.fromImage }}" class="img-circle" alt=""></span>
+                                        <span class="subject">
+                                            <span class="from">{{ item.from }}</span>
+                                            <span class="time">{{ item.time }}</span>
+                                        </span>
+                                        <span class="message">
+                                            {{ item.message }}
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END INBOX DROPDOWN -->
+
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+                <li class="dropdown dropdown-user dropdown-dark">
+                    <a href="javascript:;" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
+                        <img alt="" class="img-circle" src="img/genericAvatar.png">
+                         <span class="username username-hide-mobile">{{ headerCtrl.currentRbacProfile.first_name }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+
+                        <li ng-repeat="userMenuItem in headerCtrl.userMenuItems track by $index">
+                            <a ui-sref="{{ userMenuItem.state }}">
+                                <i class="{{ userMenuItem.iconClass }}"></i> {{ userMenuItem.label }}
+                            </a>
+                        </li>
+
+                        <li>
+                            <a ng-click="headerCtrl.logout()">
+                                <i class="icon-key"></i> Log Out </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- ROLE SELECTION DROPDOWN -->
+                <li class="dropdown role-dropdown" ng-show="{{ headerCtrl.allRoles.length > 0 && headerCtrl.allRoles }}">
+                    <select class="selectpicker form-control header-dropdown" ng-model="headerCtrl.selectedRole" ng-change="headerCtrl.changeRole()">
+                        <option ng-repeat="role in headerCtrl.allRoles | orderBy: 'role_name' track by role.role_name"
+                                ng-selected="{{ role.role_name ===  headerCtrl.currentRoleName }}">{{ role.role_name }}</option>
+                    </select>
+                </li>
+
+                <!-- TEAM SELECTION DROPDOWN -->
+                <li class="dropdown" ng-show="headerCtrl.enableTeamSelection">
+                    <stg-hierarchy-select-button
+                            class="header-dropdown"
+                            ref-id="globalHierarchySelection"
+                            fetch-children-every-time="false"
+                            enable-multi-select="false"
+                            select-global-selected-team-by-default="true"
+                            broadcast-empty-selection="false"
+                            sync-global-team-selection-on-close="true"
+                            get-child-teams-fn="headerCtrl.getChildTeamsFn()"
+                            get-grid-teams-fn="headerCtrl.getGridTeamsFn()"
+                    ></stg-hierarchy-select-button>
+                </li>
+                <!-- END USER LOGIN DROPDOWN -->
+
+
+                <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                <li class="dropdown dropdown-extended quick-sidebar-toggler" ng-show="headerCtrl.enableQuickSidebar">
+                    <span class="sr-only">Toggle Quick Sidebar</span>
+                    <i class="icon-logout"></i>
+                </li>
+                <!-- END QUICK SIDEBAR TOGGLER -->
+
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+
+        <div class="app-search">
+            <!-- BEGIN HEADER SEARCH BOX -->
+            <form ng-if="!hasTranscludedContent" class="search-form" action="extra_search.html" method="GET">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="query">
+                    <span class="input-group-btn">
+                    <a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+                    </span>
+                </div>
+            </form>
+            <div ng-if="hasTranscludedContent" ng-transclude></div>
+            <!-- END HEADER SEARCH BOX -->
+        </div>
+
+    </div>
+</div>
+
+<!-- END HEADER TOP -->

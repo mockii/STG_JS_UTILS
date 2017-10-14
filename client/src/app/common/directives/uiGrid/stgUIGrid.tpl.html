@@ -1,0 +1,17 @@
+
+<div ui-grid="stgUIGridCtrl.gridOptions"
+     ui-grid-auto-resize
+     ui-grid-pagination
+     ui-grid-selection
+     ui-grid-expandable
+     ui-grid-tree-view
+     grid-scrolling
+     ui-grid-pinning
+     class="grid" style="height: 350px;">
+    <div class="load-mask" ng-hide="!stgUIGridCtrl.showLoading">
+        <div class="loading-animation"></div>
+    </div>
+    <div ng-if="stgUIGridCtrl.noRecordsFound">
+        <div show-empty-msg hide-msg="{{ !stgUIGridCtrl.gridOptions.data.length && stgUIGridCtrl.noRecordsFound }}"></div>
+    </div>
+</div>

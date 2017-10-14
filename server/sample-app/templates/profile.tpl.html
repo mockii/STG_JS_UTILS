@@ -1,0 +1,8 @@
+<div class="profile">
+    <h1>{{ profileController.myTitle }}</h1>
+    <div>
+        <ul ng-repeat="org in profileController.profile.attributes">
+            <li ng-repeat="(key, value) in org" style="list-style: none;"><strong>{{ key }}</strong>: {{ value }}</li>
+        </ul>
+    </div>
+</div>

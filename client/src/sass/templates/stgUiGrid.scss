@@ -1,0 +1,291 @@
+/*-- Start of Custom UI Grid Styling --*/
+
+.loading-animation {
+  display: block;
+  background-image: url("../img/input-spinner.gif");
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  border: 1px solid grey;
+  border-radius: 10px;
+  left: 40%;
+  top: 30%;
+  height: 63px;
+  width: 100px;
+}
+
+/*-- UI Grid --*/
+.ui-grid-viewport{
+  overflow: auto !important;
+}
+
+.ui-grid-render-container-left .ui-grid-viewport {
+  overflow: hidden !important;
+}
+
+.ui-grid-scrollbar-placeholder {
+  border-right: 1px solid #CCCCCC !important;
+}
+
+.ui-grid-column-menu-button-last-col {
+  margin-right: 2px;
+}
+
+.ui-grid-top-panel {
+  background-image: none;
+}
+
+.ui-grid-filter-container {
+  padding: 4px 10px;
+  position: relative;
+  border-top: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+}
+
+.ui-grid-row:nth-child(even) .ui-grid-cell {
+  background-color: transparent;
+  border-bottom: solid;
+  border-top: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+}
+
+input[type="text"].ui-grid-filter-input {
+  background-image: url(../images/magnify.png);
+  background-repeat: no-repeat;
+  background-position: 98%;
+  background-size: 13px;
+  border-width: 0px;
+}
+
+input[type="text"].ui-grid-filter-input:hover {
+  border-width: 0px;
+}
+
+input[type="text"].ui-grid-filter-input:focus {
+  background-image: none;
+  outline-color: transparent;
+}
+.ui-grid-menu-button .ui-grid-menu .ui-grid-menu-mid {
+  overflow: auto;
+}
+
+/*-- UI Grid Pagination --*/
+.ui-grid-pager-panel {
+  border-top-color: lightgray;
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+.ui-grid-pager-container {
+  display: inline-block;
+  float: inherit;
+  margin-bottom: -5px;
+}
+.ui-grid-pager-control .ui-grid-pager-max-pages-number {
+  vertical-align: middle;
+}
+.ui-grid-pager-row-count-picker{
+  float: right;
+}
+
+/** Section to Replace pagination buttons */
+
+.ui-grid-pager-control button,
+.ui-grid-pager-control button:enabled,
+.ui-grid-pager-control button:hover {
+  border: 0;
+  background-color: transparent;
+  outline: 0;
+}
+.ui-grid-pager-control .first-triangle,
+.ui-grid-pager-control .last-triangle {
+  border: 0;
+  height: inherit;
+  font-size: 14px;
+  color: #000000;
+  margin-top: -2px;
+}
+.ui-grid-pager-control .first-triangle {
+  margin-left: -5px;
+}
+.ui-grid-pager-control .last-triangle {
+  margin-left: -7px;
+}
+.first-triangle::before {
+  border: 0;
+  content: "\00ab";
+  font-size: xx-large;
+  line-height: 0.5;
+  color: #3598dc;
+}
+.last-triangle::before {
+  border: 0;
+  content: "\00bb";
+  font-size: xx-large;
+  line-height: 0.5;
+  color: #3598dc;
+}
+.first-triangle.prev-triangle::before {
+  content:"\2039";
+  font-size: xx-large;
+  line-height: 0.5;
+  color: #3598dc;
+}
+.last-triangle.next-triangle::before {
+  content:"\203A";
+  font-size: xx-large;
+  line-height: 0.5;
+  color: #3598dc;
+  margin-left: 8px;
+}
+.ui-grid-pager-control .first-bar,
+.ui-grid-pager-control .last-bar {
+  display: none;
+}
+.ui-grid-pager-control{
+  float: left;
+}
+.ui-grid-pinned-container-left ~ .ui-grid-pager-panel > .ui-grid-pager-container {
+  margin-left: 20px;
+}
+.ui-grid-pager-row-count-picker select {
+  width: 40.5%;
+}
+/* remove spinner on the page input */
+.ui-grid-pager-control-input {
+  -moz-appearance:textfield;
+}
+.ui-grid-pager-control-input::-webkit-outer-spin-button,
+.ui-grid-pager-control-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.ui-grid-pager-control input {
+  text-align: right;
+  width: 60px;
+}
+.ui-grid-pager-control .ui-grid-pager-max-pages-number>* {
+  margin: 5px;
+  font-size: large;
+}
+.ui-grid-pager-first, .ui-grid-pager-previous, .ui-grid-pager-next, .ui-grid-pager-last {
+  background-color: white !important;
+}
+.ui-grid-pager-control button:active:focus, .ui-grid-pager-control button:active:hover {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ui-grid-header-cell {
+  float: left;
+  height: 60.67px;
+}
+/* remove dotted line under the slash of: page 1 / 10 */
+abbr[title] {
+  border-bottom: none !important;
+  cursor: inherit !important;
+  text-decoration: none !important;
+}
+
+.ui-grid-row:last-child .ui-grid-cell {
+  border-bottom: 1px solid #CCCCCC !important;
+}
+
+.ui-grid-row:nth-child(odd) .ui-grid-cell {
+  border-right: 1px solid #CCCCCC !important;
+}
+
+.ui-grid-row:nth-child(even) .ui-grid-cell {
+  border-right: 1px solid #CCCCCC !important;
+}
+
+.ui-grid-expandable-buttons-cell i{
+  padding-left: 7px;
+  vertical-align: middle;
+}
+
+.ui-grid-row .ui-grid-cell.ui-grid-row-header-cell {
+  background-color: white;
+}
+
+select.ui-grid-filter-select {
+  padding: 4px 13px;
+  outline-color: transparent;
+  border-color: #e5e5e5;
+  color: #333;
+  font-weight: normal;
+}
+
+select.ui-grid-filter-select option:focus{
+  outline-color: transparent;
+}
+
+.stg-ui-grid-pager-panel .ui-grid-pager-row-count-picker {
+  display: none;
+}
+
+.ui-grid-cell-contents {
+  user-select: initial;
+  cursor: auto;
+}
+
+.ui-grid-row, .ui-grid-cell {
+  height: auto !important;
+  min-height: 30px;
+}
+
+.ui-grid-row div[role=row] {
+  display: flex ;
+  align-content: stretch;
+}
+
+/* set background color and opcacity to hide the magnify icon on filtering*/
+.ui-grid-filter-container .ui-grid-filter-button [class^=ui-grid-icon] {
+   background-color: white;
+   opacity: 1 !important;
+ }
+
+.expandableRow {
+  border-left: 1px solid #ddd;
+}
+
+/* teams display path */
+ul.team-path-list {
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+ul li.team-path-list-item > .fa-minus:before {
+  color: #999;
+}
+/* End of teams display path */
+
+select.ui-grid-filter-select {
+  height: 34px;
+  padding: 0;
+  margin: -4px -10px;
+  width: 100%;
+  min-height: 25px;
+  border: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.no-data-found {
+  font-style: italic;
+  padding-left: 15px;
+  padding-top: 5px;
+  position: fixed;
+  color: #999999;
+}
+
+/*-- End of Custom UI Grid Styling --*/

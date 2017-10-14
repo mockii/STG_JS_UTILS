@@ -1,0 +1,74 @@
+
+.maintenance-notification-modal  .maintenance-notification-modal-header {
+  padding: 10px 15px 5px 15px;
+}
+
+.maintenance-notification-modal .maintenance-notification-modal-header>i {
+  font-size: 20px;
+  margin-top: 4px;
+}
+
+.maintenance-notification-modal .maintenance-notification-modal-header .maintenance-color {
+  color: #3598dc;
+}
+
+.maintenance-notification-modal .maintenance-notification-modal-header .maintenance-icon {
+  padding-top: 5px;
+}
+
+.maintenance-notification-modal .maintenance-notification-modal-body {
+  padding-top: 0px;
+  min-height: 125px;
+}
+
+.maintenance-notification-modal  .maintenance-visual {
+  position: absolute;
+  right: 0;
+  display: block;
+  margin-right: 15px;
+}
+
+.maintenance-notification-modal  .maintenance-visual>i {
+  color: #5e5e5e;
+  opacity: .1;
+  filter: alpha(opacity=10);
+}
+
+.maintenance-notification-modal  .maintenance-visual>i {
+  font-size: 110px;
+  line-height: 110px;
+}
+
+.maintenance-notification-modal .maintenance-notification-modal-footer {
+  padding: 10px 15px 10px 15px;
+}
+
+.maintenance-notification-modal .maintenance-notification-modal-footer .prior-news>i,
+.maintenance-notification-modal .maintenance-notification-modal-footer .next-news>i {
+  font-size: 18px;
+  padding-top: 2px;
+  z-index: 1052;
+}
+
+.maintenance-notification-modal .maintenance-notification-modal-footer .maintenance-indicators {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin-top: 10px;
+  text-align: center;
+  list-style: none;
+}
+
+.maintenance-notification-modal .maintenance-notification-modal-footer .maintenance-indicators .active {
+  background-color: #3598dc;
+}
+
+.maintenance-notification-modal .maintenance-notification-modal-footer .maintenance-indicators li {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 2px;
+  cursor: pointer;
+  border: 1px solid #3598dc;
+  border-radius: 10px;
+}

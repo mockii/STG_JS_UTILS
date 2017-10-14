@@ -1,0 +1,57 @@
+
+.hierarchy-selection-button > i {
+  padding-left: 10px;
+}
+
+.hierarchy-selection-dropdown {
+  padding: 10px 10px 5px 10px;
+
+  /** this needs to be changed based on media type **/
+  height: auto;
+  max-height: 400px;
+  overflow-x: hidden;
+
+  margin-top: 0px !important;
+}
+
+.hierarchy-selection-dropdown .btn-default {
+  margin-top: -10px;
+}
+
+.hierarchy-selection-dropdown  i.fa-search{
+  padding-left: 5px;
+}
+
+.hierarchy-selection-dropdown > .portlet.light {
+  padding: 0px 0px 10px;
+  margin-bottom: 0px !important;
+}
+
+.hierarchy-selection-dropdown > .portlet.light > .portlet-title {
+  min-height: 38px !important;
+  margin-bottom: 0px !important;
+}
+
+.hierarchy-selection-dropdown > .portlet.light > .portlet-title > .caption {
+  width: 100%;
+}
+
+.hierarchy-selection-button .caret {
+  top: 50%;
+  right: 12px;
+  vertical-align: middle;
+  border: 0;
+  width: auto;
+  height: auto;
+  margin-top: -4px!important;
+  padding-left: 5px;
+}
+
+.hierarchy-selection-button .caret:before {
+  content: "\f107";
+  display: inline-block;
+  border: 0;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: 400;
+}

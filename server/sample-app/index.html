@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="oauthExample">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
+
+    <title>OAuth2 Example</title>
+    <meta name="description" content=""/>
+
+    <link rel="stylesheet" href="css/STGWebUtils-0.1.0.concat.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+
+    <script type="text/javascript" src="scripts/STGWebUtils-0.1.0.concat.min.js"></script>
+    <script type="text/javascript" src="scripts/STGWebUtils-0.1.0.js"></script>
+    <script type="text/javascript" src="scripts/stgAuth.js"></script><!-- dynamic from server -->
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-68392564-1', 'auto');
+    </script>
+
+</head>
+<body ng-controller="AppController as appController">
+
+    <!-- MAIN CONTENT GOES HERE -->
+    <section class="mainContent" ui-view></section>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" ng-click="appController.menuCollapsed = !appController.menuCollapsed" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/oauth2.png" height="44" width="44"/></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" uib-collapse="appController.menuCollapsed">
+          <ul class="nav navbar-nav">
+            <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+              <li ui-sref-active="active"><a ui-sref="profile">Profile</a></li>
+              <li ui-sref-active="active"><a ui-sref="helloWorld">3rd Tab</a></li>
+          </ul>
+            <div class="logout">
+                <a ng-click="appController.doLogout()" style="cursor: pointer;">Logout</a>
+            </div>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <footer>
+        <div class="footerContainer">
+            <div class="copyright">&copy;&nbsp;Copyright 2015 - Compass Group</div>
+            <div class="timer" ng-cloak>{{ appController.timeLeft() | CountdownTimerFilter }}</div>
+        </div>
+    </footer>
+
+    <toast></toast>
+
+<script src="scripts/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+
+/**
+ * Treeview styles
+ *
+ * @private
+ * @package ivh.treeview
+ * @copyright 2014 iVantage Health Analytics, Inc.
+ */
+
+ul.ivh-treeview {
+  //-- Hide Collapsed Nodes
+  //-----------------------
+  li.ivh-treeview-node-collapsed {
+    ul.ivh-treeview {
+      display: none;
+    }
+  }
+
+  //-- Twisties
+  //-----------
+  .ivh-treeview-twistie {
+    &-leaf, &-collapsed {
+      display: none;
+    }
+  }
+
+  .ivh-treeview-node-collapsed {
+    .ivh-treeview-twistie {
+      &-collapsed {
+        display: inline;
+      }
+      &-expanded {
+        display: none;
+      }
+    }
+  }
+
+  // Leaves should never have the expanded or collapsed marker, only the leaf
+  // marker
+  li.ivh-treeview-node-leaf {
+    .ivh-treeview-twistie {
+      &-leaf {
+        display: inline;
+      }
+      &-expanded, &-collapsed {
+        display: none;
+      }
+    }
+  }
+}
+
+
+ul.ivh-treeview {
+  list-style-type: none;
+  padding-left: 0;
+
+  ul.ivh-treeview {
+    padding-left: 15px;
+  }
+
+  .ivh-treeview-toggle {
+    cursor: pointer;
+  }
+
+  .ivh-treeview-node-leaf .ivh-treeview-toggle {
+    cursor: pointer;
+  }
+}
+
+.ivh-treeview {
+  padding-top: 3px;
+}
+
+.ivh-treeview-node {
+  padding-bottom: 3px;
+}
+
+.ivh-treeview-twistie {
+  color: #808080;
+}
+
+.ivh-treeview-twistie-leaf {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.blocked-checkbox {
+  color: #808080;
+}
+
+.highlight-nodelabel {
+  background-color: #c9dde1
+}

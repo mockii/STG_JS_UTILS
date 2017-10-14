@@ -1,0 +1,79 @@
+<h1>Welcome</h1>
+<p>{{ 'MAIN.WELCOME' | translate }}</p>
+<p>{{ welcomeController.randomText }}</p>
+<h3>This Page</h3>
+<p>
+    This page is temporary, and is located in the following directory: <code>client/src/app/components/welcome</code>.
+</p>
+<p>
+    The files are structured to help separate logical pieces from each other.  Nested components should be located in
+    the same directory.
+</p>
+
+<h3>Logo</h3>
+<p>
+    Currently, the logo is 427px x 63px and is located at: <code>client/src/assets/img/appLogo.png</code>. Please keep
+    the size the same
+    however update/change the logo as appropriate.
+</p>
+
+<h3>Page Titles</h3>
+<p>
+    The white bar at the top is a holder for page titles.  These are optional and located in the
+    <code>stateProvider</code> section of the module.  This example page config looks like:<br/>
+<pre>
+angular.module("myapp.welcome", [
+    'myapp.welcome.controller'
+])
+    .config(['$stateProvider', function(stateProvider){
+        stateProvider
+            .state('welcome', {
+                url: "/",
+                templateUrl: "welcome/welcome.tpl.html",
+                controller: "WelcomeController as welcomeController",
+                data: {
+                    pageTitle: "Welcome!"
+                }
+            });
+    }]);</pre>
+</p>
+
+<h3>Navigation Control</h3>
+<div>
+    <p>
+        The navigation bar is controlled in the application controller <code>client/src/app/app.js</code> and
+        index.html <code>client/src/index.html</code> files.<br/>
+        <pre>
+appController.navItems = [
+    {
+        pageName: "Welcome",
+        state: "/"
+    }
+];</pre>
+        <pre>
+&lt;div stg-nav-bar class="page-header" menu-items="appController.navItems"&gt;&lt;/div&gt;</pre>
+
+    This item accepts an array of objects, with <code>pageName</code> and <code>state</code> as the keys.
+    </p>
+</div>
+<div>
+    <br/>
+    <span class="alert alert-info"><i class="icons icon-info"></i> Super-lists will be added in the future
+        (multi-dimensional array objects)</span>
+</div>
+
+<br/>
+<h3>Building</h3>
+<p>
+    You'll notice that your <code>dist</code> folder will have some additional files included into it.  This is the
+    result of integrating the STGWebUtils Client Libraries into the project. The package is installed via <kbd>npm
+    install</kbd> which references the package in the <code>src/client/package.json</code> file.
+</p>
+<p>
+    During install, the <code>src/client/gruntfile.js</code> will reach into the <code>src/client/node_modules</code>
+    folder, retrieve the appropriate assets (js, css, images, fonts, etc), and place them into the appropriate folders
+    in the <code>src/client/dist</code> folder. <br/>
+    <span class="label label-danger"><i class="glyphicon glyphicon-fire"></i> There are <b>NO</b> file checks
+        in place to prevent overwriting an existing library asset file.</span>
+</p>
+

@@ -1,0 +1,59 @@
+<!-- ALERT NOTIFICATION MODAL -->
+<div class="modal-content alert-notification-modal">
+    <!-- ALERT HEADER -->
+    <div class="modal-header alert-notification-modal-header">
+        <i class="pull-left fa fa-bell-o alert-icon alert-color"></i>
+        <button type="button" class="close" ng-click="notificationMessagesModalController.close()"></button>
+        <h3 class="modal-title alert-color"> Alert </h3>
+    </div>
+    <!-- END ALERT HEADER -->
+
+    <!-- ALERT BODY -->
+    <div class="modal-body alert-notification-modal-body">
+        <div class="alert-details">
+            <div class="alert-visual">
+                <i class="fa fa-bell-o"></i>
+            </div>
+            <h3>{{ notificationMessagesModalController.alert.short_description }}</h3>
+            <p ng-bind-html="notificationMessagesModalController.alert.message"></p>
+        </div>
+    </div>
+    <!-- END ALERT BODY -->
+
+    <!-- ALERT FOOTER -->
+    <div class="modal-footer alert-notification-modal-footer">
+
+        <!-- LEFT ARROW -->
+        <button type="button" class="btn btn-xs btn-icon-only btn-circle blue pull-left prior-alert"
+                ng-show="notificationMessagesModalController.alerts.length > 1"
+                ng-disabled="notificationMessagesModalController.alertIndex === 0"
+                ng-click="notificationMessagesModalController.showPriorAlert()">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+        </button>
+        <!-- END LEFT ARROW -->
+
+        <!-- ALERT COUNT INDICATORS -->
+        <span ng-show="notificationMessagesModalController.alerts.length > 1">
+            <ol class="alert-indicators">
+                <li ng-class="{active:$index===notificationMessagesModalController.alertIndex}" ng-repeat="alert in notificationMessagesModalController.alerts track by $index"></li>
+            </ol>
+        </span>
+        <!-- END ALERT COUNT INDICATORS -->
+
+        <!-- RIGHT ARROW -->
+        <button type="button" class="btn btn-xs btn-icon-only btn-circle blue pull-right next-alert"
+                ng-click="notificationMessagesModalController.showNextAlert()">
+
+            <i class="glyphicon glyphicon-chevron-right"
+               ng-show="notificationMessagesModalController.hasMoreAlerts"></i>
+
+            <i class="glyphicon glyphicon-ok"
+               ng-hide="notificationMessagesModalController.hasMoreAlerts"></i>
+
+        </button>
+        <!-- END RIGHT ARROW -->
+
+    </div>
+    <!-- ALERT FOOTER -->
+</div>
+<!-- END ALERT NOTIFICATION MODAL -->

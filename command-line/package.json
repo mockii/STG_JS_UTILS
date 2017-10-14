@@ -1,0 +1,22 @@
+{
+  "name": "stgwebutils-bootstrap-project",
+  "version": "1.0.0",
+  "description": "Script to create new Angular application using latest libraries, node servers, etc",
+  "main": "index.js",
+  "preferglobal": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Compass Group",
+  "license": "ISC",
+  "bin": {
+    "stgCreate": "index.js"
+  },
+  "dependencies": {
+    "fs-sync": "^1.0.1",
+    "prompt": "^0.2.14",
+    "semver": "^5.0.3",
+    "sync": "^0.2.5",
+    "sync-exec": "^0.6.2"
+  }
+}
