@@ -75,7 +75,6 @@ angular.module('common.directives.STGUIGrid', [])
                         stgUIGridCtrl.setGridTotalItems(response);
                         stgUIGridCtrl.checkPaginationShowLoadingSpinner(response);
                         stgUIGridCtrl.setGridResponse(response);
-                        stgUIGridCtrl.noRecordsFound = true;
                     }, function (error) {
                         stgUIGridCtrl.callPagination = true;
                         stgUIGridCtrl.resetTotalItems = true;
@@ -93,13 +92,17 @@ angular.module('common.directives.STGUIGrid', [])
             /* Ensuring response is valid.*/
             stgUIGridCtrl.isValidResponse = function(response){
                 if(!response) {
+                    stgUIGridCtrl.noRecordsFound = true;
                     $log.error('Response not received. ' + response);
                 }
                 else if(!angular.isArray(response.data) || !response.data){
-                    $log.error('Reponse data is not of type array.' + response);
+                    stgUIGridCtrl.noRecordsFound = true;
+                    $log.error('Response data is not of type array.' + response);
                 }
-                else if(angular.isArray(response) && !response.data && response.length === 0){
-                    $log.error('Reponse data is an empty array.' + response);
+                else if(response && response.data && angular.isArray(response.data) && response.data.length === 0 &&
+                        response.metadata && response.metadata.http_status_code === '200' && response.metadata.resultCount === "0"){
+                    stgUIGridCtrl.noRecordsFound = true;
+                    $log.error('Response data is an empty array.' + response);
                 }
                 else {
                     stgUIGridCtrl.showLoading = false;
@@ -108,11 +111,13 @@ angular.module('common.directives.STGUIGrid', [])
 
                 if ((response.data && response.data.length === 0 && response.metadata && response.metadata.http_status_code !== '200') ||
                     (response.data === '{}' && response.error && response.error.userErrorMessage && response.error.userErrorMessage.httpStatus !== '404')) {
+                    stgUIGridCtrl.noRecordsFound = true;
                     stgUIGridCtrl.gridOptions.totalItems = 0;
                     stgUIGridCtrl.gridOptions.data = [];
 
                     if (response.error.userErrorMessage.httpStatus !== '404') {
                         $timeout(function() {
+                            stgUIGridCtrl.noRecordsFound = true;
                             stgUIGridCtrl.errorMessage = 'An error occurred while getting data';
                             stgUIGridCtrl.errorHandling(stgUIGridCtrl.errorMessage);
                         }, 500);

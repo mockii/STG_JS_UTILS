@@ -12,6 +12,7 @@
         <div class="loading-animation"></div>
     </div>
     <div ng-if="stgUIGridCtrl.noRecordsFound">
-        <div show-empty-msg hide-msg="{{ !stgUIGridCtrl.gridOptions.data.length && stgUIGridCtrl.noRecordsFound }}"></div>
+        <div show-empty-msg hide-msg="{{ !stgUIGridCtrl.gridOptions.data && !stgUIGridCtrl.gridOptions.data.length && stgUIGridCtrl.noRecordsFound }}"></div>
+        <!--<div class='no-data-found'>No Records Found</div>-->
     </div>
 </div>

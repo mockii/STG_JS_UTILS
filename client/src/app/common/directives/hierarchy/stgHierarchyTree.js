@@ -47,8 +47,8 @@ angular.module('common.directives.hierarchy.STGHierarchyTree', [
                         expandToDepth: $scope.expandToDepth
                     };
                 }
-                
-                $scope.treeData = STGHierarchyTreeService.getCurrentTeams($scope.selectGlobalSelectedTeamByDefault);
+
+                $scope.treeData = hirTreeCtrl.setInitialTree($scope.setInitialTreeData);
                 $scope.getChildTeamsFn = $scope.getChildTeamsFn();
                 $scope.useCustomGetChildTeamsFunction = $scope.getChildTeamsFn ? true : false;
 
@@ -73,6 +73,15 @@ angular.module('common.directives.hierarchy.STGHierarchyTree', [
                     hirTreeCtrl.expand(hirTreeCtrl.treeData[0], hirTreeCtrl.expandToDepth);
                 }
             }
+
+            hirTreeCtrl.setInitialTree = function(data) {
+                if (data) {
+                    return STGHierarchyTreeService.formatTeamDataForHierarchyTree(data);
+                }
+                else {
+                    return STGHierarchyTreeService.getCurrentTeams($scope.selectGlobalSelectedTeamByDefault);
+                }
+            };
 
 
             /**
@@ -287,7 +296,8 @@ angular.module('common.directives.hierarchy.STGHierarchyTree', [
 
             return {
                 getCurrentTeams : getCurrentTeams,
-                getChildrenForNode : getChildrenForNode
+                getChildrenForNode : getChildrenForNode,
+                formatTeamDataForHierarchyTree: formatTeamDataForHierarchyTree
             };
         }])
 
@@ -304,7 +314,8 @@ angular.module('common.directives.hierarchy.STGHierarchyTree', [
                 disableTreeToggle: "=",
                 getChildTeamsFn: "&",
                 treeviewOptions: "=",
-                expandToDepth: "="
+                expandToDepth: "=",
+                setInitialTreeData: "="
             },
             require: '^?stgHierarchySelectButton',
             templateUrl: 'common/directives/hierarchy/stgHierarchyTree.tpl.html',

@@ -287,6 +287,7 @@ module.exports = function(grunt) {
                     '<%= distdir %>/temp/css/ngToast/**/*',
                     '<%= distdir %>/temp/css/angularBlockUI/**/*',
                     '<%= distdir %>/temp/css/ui-grid/**/*',
+                    '<%= distdir %>/temp/css/ui-select/**/*',
                     '<%= distdir %>/temp/css/<%= grunt.packageInfo.name %>.css'
                 ],
                 dest: '<%= distdir %>/temp/css/<%= grunt.packageInfo.name %>.concat.css'

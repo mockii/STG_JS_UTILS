@@ -26,7 +26,7 @@ angular.module('common.url', [])
                 costCenters: '/ui/api/cost_centers',
                 googlemaps: {
                     getGeoCodeByAddress: '/ui/api/googlemaps/addressbygeocode?address={address}',
-                    scriptEndpoint: '/api/js?key={key}&libraries=places&sensor=false'
+                    scriptEndpoint: '/api/js?key={key}&libraries=places'
                 }
             },
             actuate: {

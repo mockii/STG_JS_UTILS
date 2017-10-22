@@ -1,6 +1,6 @@
 angular.module('common.services.Utils', [])
 
-    .factory('UtilsService', [function() {
+    .factory('UtilsService', ['$rootScope', '$q', function($rootScope, $q) {
 
 
         /**
@@ -62,13 +62,34 @@ angular.module('common.services.Utils', [])
             return obj.property === this;
         }
 
+        /**
+         * Load script and return a promise
+         *
+         * @param string
+         * @returns promise
+         */
+        function loadScript(src) {
+            var deferred = $q.defer(),
+                script = document.createElement('script');
+            script.onload = function() {
+                deferred.resolve();
+            };
+            script.onerror = function() {
+                deferred.reject();
+            };
+            document.body.appendChild(script);
+            script.src = src;
+            return deferred.promise;
+        }
+
 
         return {
             convertToBoolean : convertToBoolean,
             generateGuid : generateGuid,
             removeFileExtension : removeFileExtension,
             checkIfSearchObjectPresent : checkIfSearchObjectPresent,
-            getSearchIndex : getSearchIndex
+            getSearchIndex : getSearchIndex,
+            loadScript : loadScript
         };
 
     }])

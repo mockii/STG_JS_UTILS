@@ -10,5 +10,5 @@
     "alert": false
   },
   "debug": true,
-  "predef": ["angular", "console", "en_US", "module", "_", "ko", "$", "Metronic", "Layout", "iFrameResize", "google"]
+  "predef": ["angular", "console", "en_US", "module", "_", "ko", "$", "Metronic", "Layout", "iFrameResize", "google", "window", "document"]
 }
