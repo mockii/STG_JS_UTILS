@@ -18,7 +18,11 @@
         <div class="hor-menu">
             <ul class="nav navbar-nav">
                 <li ng-repeat="item in navBarCtrl.menuItems" ui-sref-active="active">
-                    <a ng-click="navBarCtrl.navItemClick(item)"
+                    <a ng-if="item.state"
+                       ui-sref="{{ item.state }}"
+                       stg-secured-object="{{ item.securedObjectName }}">{{ item.pageName }}</a>
+                    <a ng-if="!item.state && item.href"
+                       ng-href="{{ item.href }}"
                        stg-secured-object="{{ item.securedObjectName }}">{{ item.pageName }}</a>
                 </li>
             </ul>

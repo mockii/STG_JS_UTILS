@@ -1,0 +1,310 @@
+[
+  {
+    "id":"10000",
+    "name":"MyFinance",
+    "description":"Enterprise Level In Unit Accounting and Reporting System",
+    "url":"https://rmse2dev.compassmanager.com/rms/app/usr/markup.htm",
+    "category":"business",
+    "button_url":"images/buttons/myfinance.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10001",
+    "name":"MyOrders",
+    "description":"Order Entry Solutions for All Broadline and Vending Purchasing",
+    "url":"https://omsfbadev.compassmanager.com/myorders",
+    "category":"business",
+    "button_url":"images/buttons/myorders.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10002",
+    "name":"MyResults",
+    "description":"Enterprise Reporting Gateway",
+    "url":"https://ebrgwdev.compassmanager.com/gateway/app/usr/markup.htm",
+    "category":"business",
+    "button_url":"images/buttons/myresults.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10003",
+    "name":"Webtrition",
+    "description":"Menu Engineering and Nutritional Management System",
+    "url":"http://ci.webtrition.com/",
+    "category":"business",
+    "button_url":"images/buttons/webtrition.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10004",
+    "name":"BVF Pulse",
+    "description":"Safety audit and service recovery system",
+    "url":"https://www.bvfpulse.com/demo/pulse.site/oms",
+    "category":"business",
+    "button_url":"images/buttons/bvpulse.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10005",
+    "name":"MyReports",
+    "description":"Financial, HR, and Payroll for Review by Field Personnel",
+    "url":"https://dev-myreports.compass-usa.com/ReportDistribution/login.aspx",
+    "category":"business",
+    "button_url":"images/buttons/myreports.png",
+    "sso_enabled":false,
+    "is_legacy":false
+  },
+  {
+    "id":"10006",
+    "name":"SAP",
+    "description":"",
+    "url":"https://mapdev.compassmanager.com/sap/bc/gui/sap/its/webgui?sap-client=020",
+    "category":"business",
+    "button_url":"images/buttons/sap.png",
+    "sso_enabled":false,
+    "is_legacy":false
+  },
+  {
+    "id":"10007",
+    "name":"MyCPM",
+    "description":"Update Hourly & Salaried Associate Personnel Information",
+    "url":"https://mapdev.compassmanager.com/",
+    "category":"people",
+    "button_url":"images/buttons/mycpm.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10008",
+    "name":"MySTAFF",
+    "description":"Schedule Associates, Track Time & Attendance and Request Off-cycle Checks",
+    "url":"https://staffdev.compass-usa.com/menu.jsp",
+    "category":"people",
+    "button_url":"images/buttons/mystaff.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10009",
+    "name":"WebPayroll",
+    "description":"Submit Payroll for Hourly and Salaried Non-Exempt Associates",
+    "url":"https://webpayrolldev.compassmanager.com/WebPayroll/",
+    "category":"people",
+    "button_url":"images/buttons/webpayroll.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10010",
+    "name":"MyOpportunity",
+    "description":"Recruitment, Onboarding, and Talent Management modules",
+    "url":"https://dev.compassmanager.com/idp/profile/SAML2/Unsolicited/SSO?providerId=https://www.successfactors.com&shire=https://hcm8preview.sapsf.com/saml2/SAMLAssertionConsumer?company=CGNAtest",
+    "category":"people",
+    "button_url":"images/buttons/myopportunity.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10011",
+    "name":"MyI-9",
+    "description":"Electronic I-9 and E-Verify for all New Hires and Rehires",
+    "url":"https://dev.compassmanager.com/idp/profile/SAML2/Unsolicited/SSO?providerId=https://dweb.perfectcompliance.com/shibboleth&shire=https://dweb.perfectcompliance.com/Shibboleth.sso/SAML2/POST",
+    "category":"people",
+    "button_url":"images/buttons/my-I9.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10012",
+    "name":"First Advantage",
+    "description":"Background Screening",
+    "url":"https://enterprise.fadv.com/",
+    "category":"people",
+    "button_url":"images/buttons/fadv.png",
+    "sso_enabled":false,
+    "is_legacy":false
+  },
+  {
+    "id":"10013",
+    "name":"MyCompass",
+    "description":"Compass Group Company Intranet",
+    "url":"https://omsfbadev.compassmanager.com/mycompass",
+    "category":"communications",
+    "button_url":"images/buttons/mycompass.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10014",
+    "name":"MyMail",
+    "description":"Compass Group Outlook Web Access",
+    "url":"https://omsfbadev.compassmanager.com/mymail",
+    "category":"communications",
+    "button_url":"images/buttons/mymail.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10015",
+    "name":"MyAccess",
+    "description":"Network ID and password management",
+    "url":"https://dev.compassmanager.com/idp/profile/SAML2/Unsolicited/SSO?providerId=http://cgunx240.na.compassgroup.corp:50000/irj/portal&shire=http://cgunx240.na.compassgroup.corp:50000/saml2/sp/acs",
+    "category":"administration",
+    "button_url":"images/buttons/myaccess.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10016",
+    "name":"MyITStore",
+    "description":"Compass Group IT Store",
+    "url":"https://itfinance.compass-usa.com/mitssandbox/",
+    "category":"administration",
+    "button_url":"images/buttons/myitstore.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10017",
+    "name":"MyRequests",
+    "description":"Request management system",
+    "url":"https://dev-remedyweb.compass-usa.com/arsys/forms/cguschd2528vm/OMS%3AMyRequests/Support/?mode=Submit",
+    "category":"administration",
+    "button_url":"images/buttons/myrequests.png",
+    "sso_enabled":true,"is_legacy":false
+  },
+  {
+    "id":"10018",
+    "name":"MyContracts",
+    "description":"Contract Lifecycle and Data Management",
+    "url":"https://mycontractsdev.compassmanager.com/CLM/fsbuyer/portal/login",
+    "category":"administration",
+    "button_url":"images/buttons/mycontracts.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10019",
+    "name":"MyAdmin",
+    "description":"MyAdmin application to support new account openings",
+    "url":" https://myadmindev.compassmanager.com",
+    "category":"administration",
+    "button_url":"images/buttons/myadmin.png",
+    "sso_enabled":true,"is_legacy":false
+  },
+  {
+    "id":"10020",
+    "name":"MyConcur",
+    "description":"Travel and Expense Management",
+    "url":"https://dev.compassmanager.com/idp/profile/SAML2/Unsolicited/SSO?providerId=https://implementation.concursolutions.com&shire=https://implementation.concursolutions.com/SAMLRedirector/ClientSAMLLogin.aspx",
+    "category":"administration",
+    "button_url":"images/buttons/myconcur.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10021",
+    "name":"MyFortis",
+    "description":"A Digital Document Management Portal primarily containing digital invoices (This application is not accessible from OMS DEV and QAS environments)",
+    "url":"",
+    "category":"administration",
+    "button_url":"images/buttons/myfortis.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10022",
+    "name":"PaymentNet",
+    "description":"JPMorganChase PaymentNet website",
+    "url":"https://www.paymentnet.jpmorgan.com/",
+    "category":"administration",
+    "button_url":"images/buttons/paymentnet.png",
+    "sso_enabled":false,
+    "is_legacy":false
+  },
+  {
+    "id":"10023",
+    "name":"Wireless Helpdesk",
+    "description":"Compass Group Wireless Helpdesk",
+    "url":"https://compasswireless.nrghd.com/",
+    "category":"administration",
+    "button_url":"images/buttons/wirehelp.png",
+    "sso_enabled":false,
+    "is_legacy":false
+  },
+  {
+    "id":"10024",
+    "name":"Altogether Great",
+    "description":"Compass Group Altogether Great",
+    "url":"http://www.altogethergreat.com/",
+    "category":"company",
+    "button_url":"images/buttons/atg.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10025",
+    "name":"Compass Group USA",
+    "description":"Compass Group North America Website",
+    "url":"http://compass-usa.com/",
+    "category":"company",
+    "button_url":"images/buttons/cgnad.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10026",
+    "name":"Mercury",
+    "description":"Compass Group's Global Intranet",
+    "url":"http://mercury.compass-group.com/",
+    "category":"company",
+    "button_url":"images/buttons/mercury.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10027",
+    "name":"Learning Opportunities",
+    "description":"Compass Group Learning Opportunities",
+    "url":"http://www.altogethergreat.com/Pages/LearningOpportunities.aspx",
+    "category":"company",
+    "button_url":"images/buttons/atg.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10028",
+    "name":"Password Reset",
+    "description":"",
+    "url":"https://idmdev.compassmanager.com/irj/portal/anonymous",
+    "category":"utility",
+    "button_url":"",
+    "sso_enabled":false,
+    "is_legacy":false
+  },
+  {
+    "id":"10029",
+    "name":"OMS",
+    "description":"Compass Groups single sign-on portal",
+    "url":"",
+    "category":"self",
+    "button_url":"",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10030",
+    "name":"MyCPM Sandbox",
+    "description":"Update Hourly & Salaried Associate Personnel Information",
+    "url":"https://dev.compassmanager.com/idp/profile/SAML2/Unsolicited/SSO?providerId=https://mapsbx.compassmanager.com/irj/portal&shire=https://mapsbx.compassmanager.com/saml2/sp/acs",
+    "category":"people",
+    "button_url":"images/buttons/mycpm.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  }
+]

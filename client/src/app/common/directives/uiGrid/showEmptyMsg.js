@@ -8,19 +8,17 @@ angular.module('common.directives.ShowEmptyMsg', [])
             scope: {
                 hideMsg: "@"
             },
-            link: function postLink(scope, element, attr, controller) {
-                console.log("scope.hideMsg", scope.hideMsg);
+            link: function postLink(scope, element, attr) {
                 var msg = 'No Records Found',
                     hideMsg = (scope.hideMsg === 'true'),
                     template = "<p class='no-data-found'><b>" + msg + "</b></p>";
 
-                if($('.no-data-found').length === 0 /*&& hideMsg*/) {
-                    $($('.ui-grid-viewport')[0]).append(template);
+                if (element.parent().parent().parent().find('.no-data-found').length === 0 && hideMsg) {
+                    element.parent().parent().parent().find('.ui-grid-viewport').append(template);
                 }
                 else if (!hideMsg) {
-                    $('.no-data-found').remove();
+                    element.parent().parent().parent().find('.no-data-found').remove();
                 }
             }
-
         };
     }]);

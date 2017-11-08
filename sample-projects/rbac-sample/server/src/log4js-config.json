@@ -1,0 +1,50 @@
+{
+  "appenders": [
+    {
+      "type": "file",
+      "filename": "access.log",
+      "maxLogSize": 104857600,
+      "backups": 5,
+      "category": "http",
+      "layout": {
+        "type": "pattern",
+        "pattern": "[%d{yyyy-MM-dd hh:mm:ss,SSS}] [%p] [%c] - %m"
+      }
+    },
+    {
+      "type": "file",
+      "filename": "app.log",
+      "maxLogSize": 104857600,
+      "backups": 5,
+      "category": ["server", "user-profile-router", "stg-utils", "security", "oauth-utils", "rbac", "actuate"],
+      "layout": {
+        "type": "pattern",
+        "pattern": "[%d{yyyy-MM-dd hh:mm:ss,SSS}] [%p] [%c] - %m"
+      }
+    },
+    {
+      "type": "logLevelFilter",
+      "level": "ERROR",
+      "appender": {
+        "type": "file",
+        "filename": "errors.log",
+        "maxLogSize": 104857600,
+        "backups": 2,
+        "layout": {
+          "type": "pattern",
+          "pattern": "[%d{yyyy-MM-dd hh:mm:ss,SSS}] [%p] [%c] - %m"
+        }
+      }
+    }
+  ],
+  "levels": {
+    "http": "debug",
+    "server": "debug",
+    "user-profile-router": "debug",
+    "stg-utils": "debug",
+    "security": "debug",
+    "oauth-utils": "debug",
+    "rbac": "debug",
+    "actuate": "debug"
+  }
+}

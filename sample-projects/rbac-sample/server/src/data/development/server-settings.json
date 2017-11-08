@@ -1,0 +1,14 @@
+[
+  {
+    "id":"10000",
+    "name":"Password Reset URL",
+    "description":"URL users can go to to change or reset their password",
+    "value":"https://idmdev.compassmanager.com/irj/portal/anonymous"
+  },
+  {
+    "id":"10001",
+    "name":"Compass VPN URL",
+    "description":"URL users can go to to access to Compass Groups VPN web client",
+    "value":"https://ssodev.compassmanager.com/connectcgvpn"
+  }
+]

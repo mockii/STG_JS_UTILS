@@ -115,9 +115,6 @@ angular.module('common.directives.stgGoogleMapsAutocomplete', ['common.services.
                         if (marker && marker.setMap) {
                             marker.setMap(null);
                         }
-                        console.log('lattitude', lattitude);
-                        console.log('longitude', longitude);
-                        console.log('place', place);
                         marker = new google.maps.Marker({
                             map: map,
                             anchorPoint: new google.maps.Point(0, -29),

@@ -388,7 +388,9 @@ body {
 }
 
 /* Form Validation */
-.input-icon.right>i {
+.has-success .input-icon.right>i,
+.has-error .input-icon.right>i,
+.has-warning .input-icon.right>i {
   right: 24px;
 }
 

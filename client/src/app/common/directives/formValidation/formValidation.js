@@ -34,6 +34,8 @@
                             zipCheck1 = /^(?!.*[DFIOQU])[A-VXY][0-9][A-Z] +?[0-9][A-Z][0-9]$/, // Canadian zip check regex
                             // Allows all numbers and special characters without any set max length.
                             phoneRegExp = /(?!0)[0-9()-+]+[^A-Za-z]*$/,
+                            passwordExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/, // password without special character
+                            // passwordExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
                             elementValue,
                             check = '<i class="fa fa-check custom-icon"></i>',
                             warning = '<i class="fa fa-warning custom-icon" tooltip-class="validation-info-icon"></i>';
@@ -244,6 +246,15 @@
                                     else {
                                         /* jshint expr: true */
                                         elementValue.length > 0 ? addWarningIcon('Please enter valid Zip Code.', lookupField): '';
+                                    }
+                                    break;
+                                case 'PASSWORD':
+                                    if (elementValue.length > 0 && passwordExp.test(elementValue)) {
+                                        addSuccessIcon();
+                                    }
+                                    else {
+                                        /* jshint expr: true */
+                                        elementValue.length > 0 ? addWarningIcon('Password is too weak.', lookupField): '';
                                     }
                                     break;
                             }

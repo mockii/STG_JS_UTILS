@@ -1,0 +1,40 @@
+[
+  {
+    "id":"10000",
+    "name":"Webtrition",
+    "description":"Webtrition is a web-based solution for: <br/><ul><li>Best-In-Class recipes using preferred ingredients.</li><li>Accurate nutritional data for station signage, PIDs, packaged food labels and dining websites.</li><li>Menu management that maintains standards and controls food cost.</li></ul>For access through OMS, Webtrition training must first be completed. To be directed to your sector's requirements, call the Help Desk at 800.686.6322.",
+    "url":"http://ci.webtrition.com/",
+    "category":"business",
+    "active":"Y",
+    "application_id":"10003",
+    "application_description":"Menu Engineering and Nutritional Management System",
+    "button_url":"images/buttons/webtrition.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10001",
+    "name":"MyFortis",
+    "description":"<ul><li>MyFortis is accessible via OMS now, allows instant retrieval of digital invoices (and supporting documentation) as soon as they are posted into SAP, or paid by P-card.</li><li>Digital invoices (and supporting documentation) are captured and indexed, during the single point of entry of an invoice into SAP.</li><li>All primary index fields during data entry are captured and are then immediately searchable.</li><li>Digital invoices will be kept and are accessible for 7 years.</li></ul>",
+    "url":"","category":"administration",
+    "active":"Y",
+    "application_id":"10021",
+    "application_description":"A Digital Document Management Portal primarily containing digital invoices (This application is not accessible from OMS DEV and QAS environments)",
+    "button_url":"images/buttons/myfortis.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  },
+  {
+    "id":"10002",
+    "name":"MyOpportunity",
+    "description":"<ul><li>Compass National Recruitment Center (CNRC): Recruitment & Onboarding of Hourly & Salaried Non-Exempt Associates.</li><li>Please use only if MyOpportunity was deployed to your Sector (click here for schedule)!</li><li>Click <a href='#'>here</a> to view the list of Non-exempt positions excluded from the MyOpportunity rollout.</li></ul>",
+    "url":"https://dev.compassmanager.com/idp/profile/SAML2/Unsolicited/SSO?providerId=https://www.successfactors.com&shire=https://hcm8preview.sapsf.com/saml2/SAMLAssertionConsumer?company=CGNAtest",
+    "category":"people",
+    "active":"Y",
+    "application_id":"10010",
+    "application_description":"Recruitment, Onboarding, and Talent Management modules",
+    "button_url":"images/buttons/myopportunity.png",
+    "sso_enabled":true,
+    "is_legacy":false
+  }
+]

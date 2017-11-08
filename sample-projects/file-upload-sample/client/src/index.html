@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8" ng-app="aaims" ng-strict-di> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9" ng-app="aaims" ng-strict-di> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" ng-app="sample">
+<!--<![endif]-->
+    <head>
+        <title ng-bind="'Sample | ' + $state.current.data.pageTitle"></title>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="The is a sample application designed to show how file upload within a angular applciation with NodeJS could work">
+
+        <link rel="shortcut icon" type="images/png" href="images/favicon.ico"/>
+
+
+        <link rel="stylesheet" href="css/stgwebutils-client-libs-metronic-%stg_version%.min.css"/>
+        <link rel="stylesheet" href="css/stgwebutils-client-libs-%stg_version%.min.css"/>
+
+        <link id="ng_load_plugins_before"/> <!-- Dynamically loaded CSS (lazy loaded) -->
+
+        <!-- APPLICATION SPECIFIC CSS -->
+        <link rel="stylesheet" href="css/main.css"/>
+
+        <!-- Dynamically loaded CSS (lazy loaded) -->
+        <link id="ng_load_plugins_after"/>
+    </head>
+
+    <body ng-controller="AppController as appController" class="page-on-load page-header-menu-fixed page-footer-fixed">
+
+        <!-- PAGE SPINNER -->
+        <div spinner-bar class="page-spinner-bar">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+
+        <!-- PAGE HEADER -->
+        <div stg-header class="page-header"
+             logo="appController.logo"
+             user-menu-items="appController.userMenuItems"
+             notifications="appController.notifications"
+             tasks="appController.tasks"
+             enable-team-selection="false"
+             logo-classes="appController.logoClasses"
+             top-navigation-classes="appController.topNavigationClasses">
+        </div>
+
+        <!-- NAV BAR -->
+        <div stg-nav-bar class="page-header"
+             menu-items="appController.menuItems">
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="page-container">
+
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div ui-view class="fade-in-up"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div stg-footer class="page-footer"></div>
+
+        <toast></toast>
+
+        <script type="text/javascript" src="scripts/stgwebutils-client-libs-metronic-%stg_version%.min.js"></script>
+        <script type="text/javascript" src="scripts/stgwebutils-client-libs-%stg_version%.min.js"></script>
+        <script type="text/javascript" src="scripts/stgAuth.js"></script>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            $.get('/ui/api/application/configuration', function(data) {
+                ga('create', data.ga.id, 'auto');
+            });
+        </script>
+
+
+        <!-- APPLICATION SPECIFIC JAVASCRIPT -->
+        <script src="scripts/<%= grunt.config.get('pkg.name') %>-<%= grunt.config.get('pkg.version') %>.js"></script>
+    </body>
+</html>

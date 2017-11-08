@@ -1,0 +1,74 @@
+[
+  {
+    "id":"10000",
+    "description":"Compass Group Outlook Web Access",
+    "url":"https://omsfbadev.compassmanager.com/mymail",
+    "category":"communications",
+    "application_id":"10014",
+    "application_name":"MyMail",
+    "button_url":"images/buttons/mymail.png",
+    "sso_enabled":true,
+    "is_legacy":false,
+    "order":"1"
+  },
+  {
+    "id":"10001",
+    "description":"Enterprise Level In Unit Accounting and Reporting System",
+    "url":"https://rmse2dev.compassmanager.com/rms/app/usr/markup.htm",
+    "category":"business",
+    "application_id":"10000",
+    "application_name":"MyFinance",
+    "button_url":"images/buttons/myfinance.png",
+    "sso_enabled":true,
+    "is_legacy":false,
+    "order":"2"
+  },
+  {
+    "id":"10002",
+    "description":"Order Entry Solutions for All Broadline and Vending Purchasing",
+    "url":"https://omsfbadev.compassmanager.com/myorders",
+    "category":"business",
+    "application_id":"10001",
+    "application_name":"MyOrders",
+    "button_url":"images/buttons/myorders.png",
+    "sso_enabled":true,
+    "is_legacy":false,
+    "order":"3"
+  },
+  {
+    "id":"10003",
+    "description":"Schedule Associates, Track Time & Attendance and Request Off-cycle Checks",
+    "url":"https://staffdev.compass-usa.com/menu.jsp",
+    "category":"people",
+    "application_id":"10008",
+    "application_name":"MySTAFF",
+    "button_url":"images/buttons/mystaff.png",
+    "sso_enabled":true,
+    "is_legacy":false,
+    "order":"4"
+  },
+  {
+    "id":"10004",
+    "description":"Menu Engineering and Nutritional Management System",
+    "url":"http://ci.webtrition.com/",
+    "category":"business",
+    "application_id":"10003",
+    "application_name":"Webtrition",
+    "button_url":"images/buttons/webtrition.png",
+    "sso_enabled":true,
+    "is_legacy":false,
+    "order":"5"
+  },
+  {
+    "id":"10005",
+    "description":"Update Hourly & Salaried Associate Personnel Information",
+    "url":"https://mapdev.compassmanager.com/",
+    "category":"people",
+    "application_id":"10007",
+    "application_name":"MyCPM",
+    "button_url":"images/buttons/mycpm.png",
+    "sso_enabled":true,
+    "is_legacy":false,
+    "order":"6"
+  }
+]

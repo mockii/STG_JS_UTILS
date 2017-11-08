@@ -1,0 +1,38 @@
+
+.application-category-title {
+     height: 60px;
+ }
+
+.application {
+    padding-bottom: 20px;
+}
+
+.application td {
+    vertical-align: top;
+}
+
+.application-button {
+    padding-right: 10px;
+}
+
+.application-name {
+    font-size: 22px;
+    vertical-align: text-top;
+}
+
+.application-description {
+    max-width: 200px;
+    width: 100%;
+}
+
+.legacy-applications hr {
+    border-color: #d6d6d6;
+}
+
+.tabbable-line>.nav-tabs>li.active {
+    margin-bottom: -5px;
+}
+
+.tabbable-line>.nav-tabs>li.open, .tabbable-line>.nav-tabs>li:hover {
+    margin-bottom: -5px;
+}

@@ -82,7 +82,8 @@ angular.module('STGWebUtils', [
 }])
 
 
-.run(['$rootScope', '$state', '$stateParams', '$location', 'stgOAuth2', 'STGAppService', 'STGLogService', "RBACService", '$window', function ($rootScope, $state, $stateParams, $location, stgOAuth2, STGAppService, STGLogService, RBACService, $window) {
+.run(['$rootScope', '$state', '$stateParams', '$location', 'stgOAuth2', 'STGAppService', 'STGLogService', "RBACService", '$window', '$document',
+    function ($rootScope, $state, $stateParams, $location, stgOAuth2, STGAppService, STGLogService, RBACService, $window, $document) {
 
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
@@ -100,6 +101,14 @@ angular.module('STGWebUtils', [
     }
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromStateParams) {
+
+        if (fromState.name === 'stgUserAdministration') {
+            var iFrame;
+            iFrame = $document.find('#user-admin-iframe');
+            if (iFrame[0] && iFrame[0].iFrameResizer) {
+                iFrame[0].iFrameResizer.close();
+            }
+        }
 
         if (!$rootScope.applicationConfiguration) {
             event.preventDefault();

@@ -1,8 +1,8 @@
 /* global Layout */
 angular.module('common.directives.STGNavBar', [
 ])
-    .controller('STGNavBarController', ['$scope', '$state', '$location', 'StgStatesService',
-        function ($scope, $state, $location, StgStatesService) {
+    .controller('STGNavBarController', ['$scope', '$state', '$window', 'StgStatesService',
+        function ($scope, $state, $window, StgStatesService) {
             var navBarCtrl = this;
 
             navBarCtrl.menuItems = $scope.menuItems;
@@ -15,7 +15,7 @@ angular.module('common.directives.STGNavBar', [
                 if (item.state) {
                     $state.go(item.state);
                 } else if (!item.state && item.href) {
-                    $location.path(item.href);
+                    $window.location.href = item.href;
                 } else {
                     //do nothing
                 }

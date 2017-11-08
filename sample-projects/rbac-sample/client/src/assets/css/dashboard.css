@@ -1,0 +1,11 @@
+.dashboard .caption {
+    width: 100%;
+}
+
+
+.dashboard .portlet-body {
+    min-height: 350px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+

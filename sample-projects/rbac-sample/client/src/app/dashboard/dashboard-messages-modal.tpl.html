@@ -1,0 +1,12 @@
+<!-- DASHBOARD MESSAGES MODAL -->
+<div class="modal-content">
+    <div class="modal-header message-modal">
+        <button type="button" class="close" ng-click="dashboardMessagesModalController.close()"></button>
+        <h4 class="modal-title font-blue bold">{{ dashboardMessagesModalController.applicationName }} - {{ dashboardMessagesModalController.messageType }}</h4>
+    </div>
+
+    <div class="modal-body">
+        <p ng-bind-html="dashboardMessagesModalController.applicationMessage"></p>
+    </div>
+</div>
+<!-- END DASHBOARD MESSAGES MODAL -->

@@ -49,13 +49,19 @@ angular.module('common.directives.pages.STGPageHeader',['common.services.states'
             });
 
     }])
-    .directive('stgPageHeader', ['$compile', function($compile) {
+    .directive('stgPageHeader', ['$compile', '$location', function($compile, $location) {
         return {
             restrict: 'EA',
             scope: true,
             templateUrl: 'common/directives/pages/stgPageHeader.tpl.html',
             controller: 'STGPageHeaderController as pageHeaderController',
             link: function (scope, element, attrs) {
+                //hide the header if menu=false is passed as query parameter
+                var qs = $location.search();
+                if (qs.page_title === 'false') {
+                    element.hide();
+                }
+
                 scope.addHTML = function(html) {
                     var rightContent = element.find("#rightContent");
                     rightContent.html(html);

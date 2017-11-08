@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('common.directives.STGUIGrid', [])
-    .controller('STGUIGridController', ['$rootScope', '$scope', 'STG_CONSTANTS', '$timeout', 'ModalDialogService', '$interval', '$log',
-        function ($rootScope, $scope, STG_CONSTANTS, $timeout, ModalDialogService, $interval, $log) {
+    .controller('STGUIGridController', ['$rootScope', '$scope', 'STG_CONSTANTS', '$timeout', 'ModalDialogService', '$interval', '$log', '$filter',
+        function ($rootScope, $scope, STG_CONSTANTS, $timeout, ModalDialogService, $interval, $log, $filter) {
             var stgUIGridCtrl = this,
                 searchGridPromise;
 
@@ -122,7 +122,6 @@ angular.module('common.directives.STGUIGrid', [])
                             stgUIGridCtrl.errorHandling(stgUIGridCtrl.errorMessage);
                         }, 500);
                     }
-
                 }
             };
 
@@ -193,8 +192,10 @@ angular.module('common.directives.STGUIGrid', [])
                 } else {
                     for (var j = 0; j < sortColumns.length; j++) {
                         gridSorts.sorts.push({direction: sortColumns[j].sort.direction,
-                            property: sortColumns[j].name});
+                            property: sortColumns[j].name,
+                            priority: sortColumns[j].sort.priority});
                     }
+                    gridSorts.sorts = $filter('orderBy')(gridSorts.sorts, 'priority');
                     stgUIGridCtrl.sort = JSON.stringify(gridSorts);
                 }
                 resetPagination();
@@ -222,6 +223,7 @@ angular.module('common.directives.STGUIGrid', [])
                 if(grid && grid.columns){
                     for(var i = 0; i < grid.columns.length; i++){
                         if (grid.columns[i].filters[0].hasOwnProperty('term') &&
+                            grid.columns[i].filters[0].term &&
                             grid.columns[i].filters[0].term !== null &&
                             grid.columns[i].filters[0].term !== '') {
                             stgUIGridCtrl.searchInput.search.push({

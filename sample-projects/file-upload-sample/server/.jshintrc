@@ -1,0 +1,15 @@
+{
+  "curly": true,
+  "eqnull": true,
+  "eqeqeq": true,
+  "undef": true,
+  "node": true,
+  "globals": {
+    "jQuery": true,
+    "$": false,
+    "ReturnValue": false,
+    "alert": false
+  },
+  "debug": true,
+  "predef": ["angular", "console", "module", "_", "ko", "Metronic", "Layout", "QuickSidebar", "Demo", "Promise"]
+}

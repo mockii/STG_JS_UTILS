@@ -1,0 +1,79 @@
+<div class="tab-pane fade active in margin-top-20">
+
+    <div class="data-not-found" ng-show="applicationsController.applicationCount === 0"><p>No applications available to be displayed</p></div>
+
+    <div class="row" ng-hide="applicationsController.applicationCount === 0">
+
+        <!-- SSO Integrated Applications -->
+        <div class="col-lg-3 col-md-4 col-sm-4">
+            <div class="application" ng-repeat="app in applicationsController.ssoApplications track by $index">
+
+                <table>
+                    <tr>
+                        <td>
+                            <div ng-show="!app.allow_access" class="app_not_allowed uppercase">unavailable</div>
+                            <a ng-click="appController.launchAndTrackApplication(app.url, app.name, $state.current.name)" class="application-link">
+                                <img class="application-button" ng-src="{{ app.button_url }}">
+                            </a>
+                            <!--<img ng-hide="app.allow_access" class="application-button" src="images/buttons/unavailable.png">-->
+                        </td>
+                        <td valign="top">
+                            <div class="application-name">
+                                <a ng-show="app.allow_access" ng-click="appController.launchAndTrackApplication(app.url, app.name, $state.current.name)">{{ app.name }}</a>
+                                <span ng-hide="app.allow_access">{{ app.name }}</span>
+                            </div>
+                            <div class="application-description">{{ app.description }}</div>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+        <!-- Non-SSO Integrated Applications -->
+        <div class="col-lg-3 col-md-4 col-sm-4">
+            <div class="application" ng-repeat="app in applicationsController.nonSsoApplications track by $index">
+
+                <table>
+                    <tr>
+                        <td>
+                            <div ng-show="!app.allow_access" class="app_not_allowed uppercase">unavailable</div>
+                            <a ng-click="appController.launchAndTrackApplication(app.url, app.name, $state.current.name)" class="application-link">
+                                <img class="application-button" ng-src="{{ app.button_url }}">
+                            </a>
+                            <!--<img ng-hide="app.allow_access" class="application-button" src="images/buttons/unavailable.png">-->
+                        </td>
+                        <td valign="top">
+
+                            <div class="application-name">
+                                <a ng-show="app.allow_access" ng-click="appController.launchAndTrackApplication(app.url, app.name, $state.current.name)">{{ app.name }}</a>
+                                <span ng-hide="app.allow_access">{{ app.name }}</span>
+                            </div>
+                            <div class="application-description">{{ app.description }}</div>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+        <!-- Legacy Applications -->
+        <div class="col-lg-3 col-md-4 col-sm-4">
+            <div class="legacy-applications" ng-hide="applicationsController.legacyApplications.length === 0">
+
+                <img src="images/legacy-title.png">
+                <hr/>
+
+                <div class="application" ng-repeat="app in applicationsController.legacyApplications track by $index">
+
+                    <div class="application-name">
+                        <a ng-show="app.allow_access" ng-click="appController.launchAndTrackApplication(app.url, app.name, $state.current.name)">{{ app.name }}</a>
+                        <span ng-hide="app.allow_access">{{ app.name }}</span>
+                    </div>
+                    <div class="application-description">{{ app.description }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

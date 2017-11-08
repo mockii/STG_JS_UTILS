@@ -1,0 +1,247 @@
+<div class="row dashboard" stg-secured-object="Dashboard">
+
+	<div class="col-md-12">
+
+		<!-- PORTLET 1 -->
+		<div class="col-md-4 col-sm-4 col-xs-12" stg-secured-object="RBS Admin Panel">
+
+			<div class="portlet light">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="icon-lock font-blue"></i>
+						<span class="caption-subject font-blue uppercase bold"> For Admin's Eyes Only </span>
+					</div>
+				</div>
+
+				<div class="portlet-body">
+					<div class="scroller">
+
+						<div class="alert alert-info">
+							<h4 class="block"> Admin Panel </h4>
+							<p>
+								This section contains information that is only available to System Administrators
+							</p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END PORTLET 1 -->
+
+
+		<!-- PORTLET 2 -->
+		<div class="col-md-4 col-sm-4 col-xs-12">
+
+			<div class="portlet light">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="icon-link font-blue"></i>
+						<span class="caption-subject font-blue uppercase bold"> Read Only for Users </span>
+						<a class="pull-right no-underline">
+							<i class="icon-settings" ng-click="dashboardController.alertClick()"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="portlet-body">
+					<div class="scroller">
+
+						<div class="alert alert-info alert-dismissable">
+							This entire section will be read only for basic users.
+							<button ng-click="dashboardController.alertClick()">New Button</button>
+						</div>
+
+						<div stg-secured-object="RBS Portlet 2">
+							<form class="form-horizontal">
+								<div class="form-body">
+									<div class="form-group">
+										<div class="col-md-9">
+											<div class="form-group">
+												<label class="col-md-3 control-label">Input 1</label>
+												<div class="col-md-9">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-3 control-label">Input 2</label>
+												<div class="col-md-9">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-3 control-label">Input 3</label>
+												<div class="col-md-9">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-3 control-label">Input 4</label>
+												<div class="col-md-9">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="form-actions">
+												<div class="row">
+													<div class="col-md-offset-3 col-md-9">
+														<button type="button" class="btn default" ng-click="dashboardController.alertClick()">Cancel</button>
+														<button type="submit" class="btn blue" ng-click="dashboardController.alertClick()">Submit</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END PORTLET 2 -->
+
+
+		<!-- PORTLET 3 -->
+		<div class="col-md-4 col-sm-4 col-xs-12">
+
+			<div class="portlet light">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="icon-link font-blue"></i>
+						<span class="caption-subject font-blue uppercase bold"> Portlet 3 </span>
+						<a class="pull-right no-underline">
+							<i class="icon-settings" ng-click="dashboardController.alertClick()"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="portlet-body">
+					<div class="scroller">
+
+						<div>
+							<form class="form-horizontal">
+								<div class="form-body">
+									<div class="form-group">
+										<div class="col-md-9">
+											<div class="form-group">
+												<label class="col-md-3 control-label">Input 5</label>
+												<div class="col-md-9">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-3 control-label">Input 6</label>
+												<div class="col-md-9">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="form-group" stg-secured-object="RBS Input 7">
+												<label class="col-md-3 control-label">Input 7 (Admin)</label>
+												<div class="col-md-9">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="form-group" stg-secured-object="RBS Input 8">
+												<label class="col-md-3 control-label">Input 8 (Admin)</label>
+												<div class="col-md-9">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="form-actions">
+												<div class="row">
+													<div class="col-md-offset-3 col-md-9">
+														<button type="button" class="btn default" ng-click="dashboardController.alertClick()">Cancel</button>
+														<button type="submit" class="btn blue" ng-click="dashboardController.alertClick()">Submit</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END PORTLET 3 -->
+
+		<!-- PORTLET 4 -->
+		<!--<div class="col-md-4 col-sm-4 col-xs-12">
+
+			<div class="portlet light">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="icon-link font-blue"></i>
+						<span class="caption-subject font-blue uppercase bold"> Portlet 4 </span>
+						<a class="pull-right no-underline">
+							<i class="icon-settings"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="portlet-body">
+					<div class="scroller">
+
+						<h2> Portlet 4 contents go here </h2>
+
+					</div>
+				</div>
+			</div>
+		</div>-->
+		<!-- END PORTLET 4 -->
+
+		<!-- PORTLET 5 -->
+		<!--<div class="col-md-4 col-sm-4 col-xs-12">
+
+			<div class="portlet light">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="icon-link font-blue"></i>
+						<span class="caption-subject font-blue uppercase bold"> Portlet 5 </span>
+						<a class="pull-right no-underline">
+							<i class="icon-settings"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="portlet-body">
+					<div class="scroller">
+
+						<h2> Portlet 5 contents go here </h2>
+
+					</div>
+				</div>
+			</div>
+		</div>-->
+		<!-- END PORTLET 5 -->
+
+		<!-- PORTLET 6 -->
+		<!--<div class="col-md-4 col-sm-4 col-xs-12">
+
+			<div class="portlet light">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="icon-link font-blue"></i>
+						<span class="caption-subject font-blue uppercase bold"> Portlet 6 </span>
+						<a class="pull-right no-underline">
+							<i class="icon-settings"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="portlet-body">
+					<div class="scroller">
+
+						<h2> Portlet 6 contents go here </h2>
+
+					</div>
+				</div>
+			</div>
+		</div>-->
+		<!-- END PORTLET 6 -->
+
+	</div>
+
+</div>
