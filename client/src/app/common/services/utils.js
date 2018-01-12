@@ -1,7 +1,6 @@
 angular.module('common.services.Utils', [])
 
-    .factory('UtilsService', ['$rootScope', '$q', function($rootScope, $q) {
-
+    .factory('UtilsService', ['$rootScope', '$q', function ($rootScope, $q) {
 
         /**
          * Convenience method that will convert a string object to a boolean
@@ -19,14 +18,13 @@ angular.module('common.services.Utils', [])
             return result;
         }
 
-
         /**
          * Function to generate a UUID/GUID.
          *
          * @returns {string}
          */
         function generateGuid() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
                 var r = Math.random() * 16 | 0,
                     v = c === 'x' ? r : (r & 0x3 | 0x8);
                 return v.toString(16);
@@ -44,12 +42,27 @@ angular.module('common.services.Utils', [])
             return (string.lastIndexOf('.') > 0) ? string.substr(0, string.lastIndexOf('.')) : string;
         }
 
+        /**
+         * @checkIfSearchObjectPresent
+         *
+         * Checks if the search object is present.
+         *
+         * @param
+         *
+         * property - The object property to check against.
+         * searchItems - The search items to loop through.
+         *
+         * @return
+         *
+         * boolean - Returns true if object is found, else false.
+         *
+         * */
         function checkIfSearchObjectPresent(property, searchItems) {
 
             var isObjectPresent = false;
-            if(searchItems && searchItems.length > 0){
+            if (searchItems && searchItems.length > 0) {
                 for (var i = 0; i < searchItems.length; i++) {
-                    if(property === searchItems[i].property){
+                    if (property === searchItems[i].property) {
                         isObjectPresent = true;
                         break;
                     }
@@ -58,8 +71,33 @@ angular.module('common.services.Utils', [])
             return isObjectPresent;
         }
 
-        function getSearchIndex(obj, index){
-            return obj.property === this;
+        /**
+         * @getSearchObjectIndex
+         *
+         * Returns the index if the search object is present.
+         *
+         * @param
+         *
+         * property - The object property to check against.
+         * searchItems - The search items to loop through.
+         *
+         * @return
+         *
+         * number - Returns index if object is found, else -1.
+         *
+         * */
+        function getSearchObjectIndex(property, searchItems) {
+
+            var index = -1;
+            if (searchItems && searchItems.length > 0) {
+                for (var i = 0; i < searchItems.length; i++) {
+                    if (property === searchItems[i].property) {
+                        index = i;
+                        break;
+                    }
+                }
+            }
+            return index;
         }
 
         /**
@@ -71,10 +109,10 @@ angular.module('common.services.Utils', [])
         function loadScript(src) {
             var deferred = $q.defer(),
                 script = document.createElement('script');
-            script.onload = function() {
+            script.onload = function () {
                 deferred.resolve();
             };
-            script.onerror = function() {
+            script.onerror = function () {
                 deferred.reject();
             };
             document.body.appendChild(script);
@@ -82,15 +120,12 @@ angular.module('common.services.Utils', [])
             return deferred.promise;
         }
 
-
         return {
-            convertToBoolean : convertToBoolean,
-            generateGuid : generateGuid,
-            removeFileExtension : removeFileExtension,
-            checkIfSearchObjectPresent : checkIfSearchObjectPresent,
-            getSearchIndex : getSearchIndex,
-            loadScript : loadScript
+            convertToBoolean: convertToBoolean,
+            generateGuid: generateGuid,
+            removeFileExtension: removeFileExtension,
+            checkIfSearchObjectPresent: checkIfSearchObjectPresent,
+            getSearchObjectIndex: getSearchObjectIndex,
+            loadScript: loadScript
         };
-
-    }])
-;
+    }]);

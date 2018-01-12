@@ -1,0 +1,48 @@
+{
+  "appenders": [
+    {
+      "type": "file",
+      "filename": "access.log",
+      "maxLogSize": 104857600,
+      "backups": 5,
+      "category": "http",
+      "layout": {
+        "type": "pattern",
+        "pattern": "[%d{yyyy-MM-dd hh:mm:ss,SSS}] [%p] [%c] - %m"
+      }
+    },
+    {
+      "type": "file",
+      "filename": "app.log",
+      "maxLogSize": 104857600,
+      "backups": 5,
+      "category": ["server", "stg-utils", "security", "oauth-utils", "rbac"],
+      "layout": {
+        "type": "pattern",
+        "pattern": "[%d{yyyy-MM-dd hh:mm:ss,SSS}] [%p] [%c] - %m"
+      }
+    },
+    {
+      "type": "logLevelFilter",
+      "level": "ERROR",
+      "appender": {
+        "type": "file",
+        "filename": "errors.log",
+        "maxLogSize": 104857600,
+        "backups": 2,
+        "layout": {
+          "type": "pattern",
+          "pattern": "[%d{yyyy-MM-dd hh:mm:ss,SSS}] [%p] [%c] - %m"
+        }
+      }
+    }
+  ],
+  "levels": {
+    "http": "DEBUG",
+    "server": "DEBUG",
+    "stg-utils": "DEBUG",
+    "security": "DEBUG",
+    "oauth-utils": "DEBUG",
+    "rbac": "DEBUG"
+  }
+}

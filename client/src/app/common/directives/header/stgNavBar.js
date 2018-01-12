@@ -29,7 +29,7 @@ angular.module('common.directives.STGNavBar', [
             initialize();
         }])
 
-    .directive('stgNavBar', ['$location', function($location) {
+    .directive('stgNavBar', ['ApplicationConfigurationService', function(ApplicationConfigurationService) {
         return {
             restrict: 'EA',
             transclude: true,
@@ -44,8 +44,7 @@ angular.module('common.directives.STGNavBar', [
                 });
 
                 //hide the nav bar if menu=false is passed as query parameter
-                var qs = $location.search();
-                if (qs.menu === 'false') {
+                if (ApplicationConfigurationService.isMenuHidden()) {
                     $element.hide();
                 }
             }

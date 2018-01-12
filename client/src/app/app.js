@@ -22,7 +22,8 @@ angular.module('STGWebUtils', [
     'common.templates.app',
     'common.url',
     'common.constants',
-    'ui.select'
+    'ui.select',
+    'ngCookies'
 ])
 
 .controller("STGAppController", [function() {
@@ -56,14 +57,6 @@ angular.module('STGWebUtils', [
 .factory('STGAppService', ['$http', '$filter', '$analytics', 'SERVER_URL_SPACE', 'RBACService', function($http, $filter, $analytics, SERVER_URL_SPACE, RBACService) {
     var appService = {};
 
-    appService.initializeApplicationConfiguration = function() {
-        return $http.get(SERVER_URL_SPACE.urls.local.applicationConfiguration).then(function(response) {
-            return response.data;
-        }, function() {
-            throw 'An error occurred while getting application configuration object from the server';
-        });
-    };
-
     appService.enableUserTrackingForAnalytics = function() {
         if (RBACService.getUsername()) {
             $analytics.setUserProperties({
@@ -82,8 +75,8 @@ angular.module('STGWebUtils', [
 }])
 
 
-.run(['$rootScope', '$state', '$stateParams', '$location', 'stgOAuth2', 'STGAppService', 'STGLogService', "RBACService", '$window', '$document',
-    function ($rootScope, $state, $stateParams, $location, stgOAuth2, STGAppService, STGLogService, RBACService, $window, $document) {
+.run(['$rootScope', '$state', '$stateParams', '$location', 'stgOAuth2', 'STGAppService', 'STGLogService', "RBACService", '$window', '$document', 'ApplicationConfigurationService',
+    function ($rootScope, $state, $stateParams, $location, stgOAuth2, STGAppService, STGLogService, RBACService, $window, $document, ApplicationConfigurationService) {
 
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
@@ -100,6 +93,8 @@ angular.module('STGWebUtils', [
         RBACService.changeRbacProfile(qs);
     }
 
+    ApplicationConfigurationService.checkMenuState();
+
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromStateParams) {
 
         if (fromState.name === 'stgUserAdministration') {
@@ -110,10 +105,25 @@ angular.module('STGWebUtils', [
             }
         }
 
-        if (!$rootScope.applicationConfiguration) {
+        if (ApplicationConfigurationService.isMenuHidden()) {
+            toParams.menu = false;
+        }
+
+        if (ApplicationConfigurationService.isPageTitleHidden()) {
+            toParams.page_title = false;
+        }
+
+
+        if (fromState.name === 'commPreferences') {
+            var elem = $document.find('.page-content');
+            elem = angular.element(elem);
+            elem.removeClass('hide-page-content');
+        }
+
+        if (ApplicationConfigurationService.shouldLoadApplicationConfiguration()) {
             event.preventDefault();
 
-            STGAppService.initializeApplicationConfiguration()
+            ApplicationConfigurationService.initializeApplicationConfiguration()
                 .then(function(config){
                     $rootScope.applicationConfiguration = config;
                     STGLogService.configureLogService();
@@ -131,6 +141,14 @@ angular.module('STGWebUtils', [
             stgOAuth2.resetSessionExpire();
         }
 
+    });
+
+    $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+        if (toState.name === 'commPreferences' && toParams && toParams.page_title === false && toParams.menu === false) {
+            var elem = $document.find('.page-content');
+            elem = angular.element(elem);
+            elem.addClass('hide-page-content');
+        }
     });
 
     // Create IE + others compatible event handler

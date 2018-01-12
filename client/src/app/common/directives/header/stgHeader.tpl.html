@@ -145,9 +145,11 @@
 
                 <!-- ROLE SELECTION DROPDOWN -->
                 <li class="dropdown role-dropdown" ng-show="{{ headerCtrl.allRoles.length > 0 && headerCtrl.allRoles }}">
-                    <select class="selectpicker form-control header-dropdown" ng-model="headerCtrl.selectedRole" ng-change="headerCtrl.changeRole()">
-                        <option ng-repeat="role in headerCtrl.allRoles | orderBy: 'role_name' track by role.role_name"
-                                ng-selected="{{ role.role_name ===  headerCtrl.currentRoleName }}">{{ role.role_name }}</option>
+                    <select load-select-picker class="form-control header-dropdown"
+                            ng-model="headerCtrl.selectedRole"
+                            ng-change="headerCtrl.changeRole()"
+                            ng-options="role.role_name for role in headerCtrl.allRoles | orderBy: 'role_name' track by role.role_name">
+                        <option style="display:none" value="">{{ headerCtrl.currentRoleName }}</option>
                     </select>
                 </li>
 

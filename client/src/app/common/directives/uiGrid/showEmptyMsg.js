@@ -14,7 +14,14 @@ angular.module('common.directives.ShowEmptyMsg', [])
                     template = "<p class='no-data-found'><b>" + msg + "</b></p>";
 
                 if (element.parent().parent().parent().find('.no-data-found').length === 0 && hideMsg) {
-                    element.parent().parent().parent().find('.ui-grid-viewport').append(template);
+                    var elem = element.parent().parent().parent().find('.ui-grid-viewport');
+                    if (elem.length > 1) {
+                        angular.element(elem[1]).append(template);
+                    }
+                    else
+                    {
+                        elem.append(template);
+                    }
                 }
                 else if (!hideMsg) {
                     element.parent().parent().parent().find('.no-data-found').remove();

@@ -31,3 +31,10 @@
   max-width: 85px !important;
 }
 
+.role-dropdown .bootstrap-select>.dropdown-toggle.bs-placeholder,
+.role-dropdown .bootstrap-select>.dropdown-toggle.bs-placeholder:active,
+.role-dropdown .bootstrap-select>.dropdown-toggle.bs-placeholder:focus,
+.role-dropdown .bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
+  color: #333;
+}
+

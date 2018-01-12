@@ -1,0 +1,102 @@
+/*!
+ * Styles to add switch as a checkbox
+ */
+
+.switch {
+    position: relative;
+    display: block;
+    vertical-align: top;
+    width: 100px;
+    height: 30px;
+    padding: 3px;
+    margin: 0 10px 10px 0;
+    cursor: pointer;
+}
+.switch-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: none;
+}
+.switch-label {
+    position: relative;
+    display: block;
+    height: 35px;
+    font-size: 10px;
+    text-transform: uppercase;
+    background: #eceeef;
+}
+.switch-label:before, .switch-label:after {
+    position: absolute;
+    top: 50%;
+    margin-top: -.5em;
+    line-height: 1;
+    -webkit-transition: inherit;
+    -moz-transition: inherit;
+    -o-transition: inherit;
+    transition: inherit;
+}
+.switch-label:before {
+    content: attr(data-off);
+    right: 16px;
+}
+.switch-label:after {
+    content: attr(data-on);
+    left: 13px;
+    color: #FFFFFF;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+}
+.switch-input:checked ~ .switch-label {
+    background: #357ebd;
+
+}
+.switch-input:checked ~ .switch-label:before {
+    opacity: 0;
+}
+.switch-input:checked ~ .switch-label:after {
+    opacity: 1;
+}
+.switch-handle {
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    width: 44px;
+    height: 32px;
+    background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
+    margin-top: .5px;
+}
+.switch-handle:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -6px 0 0 -6px;
+    width: 12px;
+    height: 12px;
+}
+.switch-input:checked ~ .switch-handle {
+    left: 50px;
+}
+.switch-input ~ .switch-label {
+    background: #C1C1C1;
+}
+.switchClass {
+    background-color: white !important;
+    width: 100px;
+}
+
+/* Transition
+========================== */
+.switch-label, .switch-handle {
+    transition: All 0.3s ease;
+    -webkit-transition: All 0.3s ease;
+    -moz-transition: All 0.3s ease;
+    -o-transition: All 0.3s ease;
+}
+
+.switch-label-container{
+    min-width: 129px;
+    margin-left: 5px;
+}

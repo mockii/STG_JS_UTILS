@@ -27,7 +27,7 @@
 
                     // delete if exist
                     if(UtilsService.checkIfSearchObjectPresent(searchProperty, searchInput.search)){
-                        var index = searchInput.search.findIndex(UtilsService.getSearchIndex, searchProperty);
+                        var index = UtilsService.getSearchObjectIndex(searchProperty, searchInput.search);
                         searchInput.search.splice(index,1);
                     }
 

@@ -3,8 +3,8 @@ angular.module('common.services.googlemaps', [
     'common.services.googlemaps.constant',
     'common.url'
 ])
-    .factory("StgGoogleMapsService", ['$log', '$q', 'SERVER_URL_SPACE', '$http',
-        function($log, $q, SERVER_URL_SPACE, $http) {
+    .factory("StgGoogleMapsService", ['$log', '$q', 'SERVER_URL_SPACE', '$http', '$rootScope', 'GOOGLEMAPS_CONSTANTS',
+        function($log, $q, SERVER_URL_SPACE, $http, $rootScope, GOOGLEMAPS_CONSTANTS) {
 
             var googleMapsService = {};
             googleMapsService.googleMapScriptLoaded = false;
@@ -40,7 +40,17 @@ angular.module('common.services.googlemaps', [
 
                 $http(httpOptions).then(
                     function (response) {
-                        var formattedAddress = googleMapsService.getFormattedAddress(response.results[0]);
+                        var formattedAddress;
+                        if(response.data.status !== GOOGLEMAPS_CONSTANTS.ZERO_RESULTS && response.data.results.length === 1){
+                            $rootScope.$broadcast('verifyAddressChange', response.data.results[0]);
+                            formattedAddress = googleMapsService.getFormattedAddress(response.data.results[0]);
+                        } else if(response.data.status !== GOOGLEMAPS_CONSTANTS.ZERO_RESULTS && response.data.results.length > 1){
+                            var formattedAddresses = [];
+                            angular.forEach(response.data.results, function(addressComponent){
+                                formattedAddresses.push(googleMapsService.getFormattedAddress(addressComponent));
+                            });
+                            response.data.formattedAddresses = formattedAddresses;
+                        }
                         deferred.resolve(formattedAddress || response.data);
                     }, function (error) {
                         $log.error('An error occurred while fetching address ' + address, error);
@@ -97,6 +107,9 @@ angular.module('common.services.googlemaps', [
                             }
                         });
                     });
+                    formattedAddress.lattitude = typeof place.geometry.location.lat === 'function' ? place.geometry.location.lat() : place.geometry.location.lat;
+                    formattedAddress.longitude = typeof place.geometry.location.lng === 'function' ? place.geometry.location.lng() : place.geometry.location.lng;
+                    formattedAddress.placeId = place.place_id || '' ;
                 }
                 return formattedAddress;
             };

@@ -27,6 +27,21 @@ angular.module('common.url', [])
                 googlemaps: {
                     getGeoCodeByAddress: '/ui/api/googlemaps/addressbygeocode?address={address}',
                     scriptEndpoint: '/api/js?key={key}&libraries=places'
+                },
+                getUserNotifications: '/ui/api/users/notifications',
+                notification: {
+                    getApplicationNotifications: '/ui/api/notifications/applications',
+                    createAppNotification: '/ui/api/notifications/categories/application',
+                    updateNotification: '/ui/api/notifications/{notification_id}',
+                    deleteNotification: '/ui/api/notifications/{notification_id}',
+                    getUserNotifications: '/ui/api/users/notifications',
+                    getUserApplicationNotifications: '/ui/api/users/{user_name}/applications/{application_name}/notifications?limit={limit}&page={page}&search={search}',
+                    createUserNotification: '/ui/api/notifications/categories/user',
+                    deleteUserNotification: '/ui/api/users/{user_name}/group_references/{group_reference}',
+                    getGroupNotifications: '/ui/api/groups/group_references',
+                    createGroupNotification: '/ui/api/notifications/categories/group',
+                    deleteGroupNotification: '/ui/api/groups/group_references/{group_reference}',
+                    updateUserNotifications: '/ui/api/users/notifications'
                 }
             },
             actuate: {

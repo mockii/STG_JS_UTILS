@@ -3,7 +3,8 @@ angular.module('common.directives.STGHeader', [
     'common.services.RBAC',
     'common.directives.notificationMessages'
 ])
-    .controller('STGHeaderController', ['$rootScope', '$scope', '$window', '$filter', 'stgOAuth2', 'RBACService', '$uibModal', function ($rootScope, $scope, $window, $filter, stgOAuth2, RBACService, $uibModal) {
+    .controller('STGHeaderController', ['$rootScope', '$scope', '$window', '$filter', 'stgOAuth2', 'RBACService', '$uibModal', '$timeout',
+        function ($rootScope, $scope, $window, $filter, stgOAuth2, RBACService, $uibModal, $timeout) {
         var headerCtrl = this;
 
         headerCtrl.currentRbacProfile = RBACService.getCurrentProfile();
@@ -63,7 +64,7 @@ angular.module('common.directives.STGHeader', [
         };
 
         headerCtrl.changeRole = function() {
-            RBACService.switchCurrentRole(headerCtrl.selectedRole);
+            RBACService.switchCurrentRole(headerCtrl.selectedRole.role_name);
         };
 
         headerCtrl.switchSelectedTeam = function() {
@@ -82,9 +83,17 @@ angular.module('common.directives.STGHeader', [
         };
 
         $scope.$on('rbacProfileChanged', function(){
+            headerCtrl.allRoles = RBACService.getAllRoles();
+            headerCtrl.selectedRole = RBACService.getCurrentRoleName();
+            headerCtrl.currentRoleName = RBACService.getCurrentRoleName();
+
             headerCtrl.teams = RBACService.getTeams();
             headerCtrl.selectedTeamName = RBACService.getSelectedTeamName();
             $rootScope.selectedTeam = RBACService.getSelectedTeam();
+
+            $timeout(function() {
+                $('.selectpicker').val(' ').selectpicker('refresh');
+            }, 100);
 
             if (!RBACService.isRbacProfile()) {
                 $rootScope.$broadcast('rbacProfileNotAvailable');
@@ -132,7 +141,7 @@ angular.module('common.directives.STGHeader', [
 
     }])
 
-    .directive('stgHeader', ['$location', function($location) {
+    .directive('stgHeader', ['ApplicationConfigurationService', function(ApplicationConfigurationService) {
         return {
             restrict: 'EA',
             transclude: true,
@@ -157,8 +166,7 @@ angular.module('common.directives.STGHeader', [
                 });
 
                 //hide the header if menu=false is passed as query parameter
-                var qs = $location.search();
-                if (qs.menu === 'false') {
+                if (ApplicationConfigurationService.isMenuHidden()) {
                     $element.hide();
                 }
             }

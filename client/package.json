@@ -3,7 +3,7 @@
   "author": {
     "name": "Compass Group"
   },
-  "version": "0.1.1-154",
+  "version": "0.1.1-171",
   "private": true,
   "description": "Angular common web framework for Compass Group STG Digital Products",
   "dependencies": {

@@ -7,5 +7,7 @@ angular.module('common.services', [
     'common.services.Utils',
     'common.services.teams',
     'common.services.adams',
-    'common.services.googlemaps'
+    'common.services.googlemaps',
+    'common.services.Notification',
+    'common.services.application.configuration'
 ]);

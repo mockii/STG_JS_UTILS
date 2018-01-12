@@ -1,6 +1,6 @@
 {
   "name": "stgwebutils-server-oauth",
-  "version": "0.1.67",
+  "version": "0.1.68",
   "description": "node app",
   "main": "index.js",
   "private": true,

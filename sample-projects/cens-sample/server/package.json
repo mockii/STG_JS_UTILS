@@ -1,0 +1,43 @@
+{
+  "name": "file-upload-sample-server",
+  "version": "0.0.1",
+  "description": "",
+  "authors": [
+    "Justin Isenhour"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "init": "npm install",
+    "start-ci": "NODE_ENV=ci node aaims-server.js",
+    "start-dev": "NODE_ENV=development node aaims-server.js",
+    "start-qas": "NODE_ENV=qas node aaims-server.js",
+    "start-prd": "NODE_ENV=production node aaims-server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "1.4.3",
+    "express": "4.14.0",
+    "express-http-proxy": "0.6.0",
+    "express-session": "1.14.2",
+    "body-parser": "1.15.0",
+    "promise": "7.1.1",
+    "replacestream": "4.0.2",
+    "request": "2.79.0",
+    "simple-oauth2": "0.2.1",
+    "stgwebutils-server-oauth": "^*",
+    "tunnel": "0.0.3",
+    "log4js": "0.6.33",
+    "pmx": "0.6.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "~1.0.0",
+    "grunt-contrib-concat": "~1.0.0",
+    "grunt-contrib-copy": "~1.0.0",
+    "grunt-contrib-jshint": "~1.1.0",
+    "grunt-contrib-watch": "~1.0.0",
+    "grunt-nodemon": "~0.4.2",
+    "grunt-recess": "~1.0.0",
+    "grunt-replace": "~1.0.0",
+    "grunt-testacular": "~0.3.0"
+  }
+}

@@ -58,6 +58,8 @@ body {
 @import "templates/treeview";
 @import "templates/stgHierarchySelectionButton";
 @import "templates/userAdministration";
+@import "templates/switchLabel";
+@import "templates/stgUiSelect";
 
 .oauthRenewModal {
 
@@ -423,6 +425,10 @@ body {
 .stg-page-header-title-no-back-button{
   margin-top: 10px;
   margin-left: -10px;
+}
+
+.hide-page-content {
+  background-color: transparent !important;
 }
 
 /* STG PAGE HEADER END */

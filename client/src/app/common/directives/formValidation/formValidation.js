@@ -16,6 +16,8 @@
                             validation,
                             notRequired,
                             notRequiredField,
+                            minLength,
+                            minLengthField,
                             lookup,
                             lookupField,
                             validationMessage,
@@ -52,10 +54,15 @@
                                 notRequired = attr.notRequired.toUpperCase();
                             }
 
+                            if (attr.ngMinlength) {
+                                minLength = attr.ngMinlength;
+                            }
+
                             lookupField = (lookup === "TRUE");
                             notRequiredField = (notRequired === "TRUE");
                             validationMessage = attr.validationMessage;
                             customMessage = validationMessage;
+                            minLengthField = (minLength > 0);
 
                             validationFn = attr.validationFn;
 
@@ -155,9 +162,20 @@
 
                         function addValidation(onBlurFlag) {
                             elementValue = element[0].value;
+                            // Uday - Commenting the below code for Temp Associate Email validation to work - will come back to this later
+                            // if(elementValue.length === 0 && notRequiredField){
+                            //     removeWarningIcon();
+                            //     removeSiblings();
+                            //     removeParentSiblings();
+                            //     return;
+                            // }
                             switch (validationType) {
                                 case 'REQUIRED':
-                                    if (elementValue.length > 0) {
+                                    if (elementValue.length > 0 && elementValue.length < minLength && minLengthField) {
+                                        /* jshint expr: true */
+                                        elementValue.length > 0 ? addWarningIcon(customMessage || 'This field is required', lookupField) : removeWarningIcon();
+                                    }
+                                    else if (elementValue.length > 0) {
                                         addSuccessIcon();
                                     }
                                     else {
@@ -239,13 +257,21 @@
                                         elementValue.length > 0 ? addWarningIcon('Please enter valid Phone Number.', lookupField) : '';
                                     }
                                     break;
+                                case 'FAX':
+                                    if (elementValue.length > 0 && phoneRegExp.test(elementValue)) {
+                                        addSuccessIcon();
+                                    }
+                                    else {
+                                        /* jshint expr: true */
+                                        elementValue.length > 0 ? addWarningIcon('Please enter valid Fax Number.', lookupField) : '';
+                                    }
+                                    break;
                                 case 'ZIP':
                                     if (elementValue.length > 0 && (zipCheck.test(elementValue) || zipCheck1.test(elementValue))) {
                                         addSuccessIcon();
                                     }
                                     else {
-                                        /* jshint expr: true */
-                                        elementValue.length > 0 ? addWarningIcon('Please enter valid Zip Code.', lookupField): '';
+                                        addWarningIcon('Please enter valid Zip Code.', lookupField);
                                     }
                                     break;
                                 case 'PASSWORD':
@@ -304,6 +330,7 @@
                         scope.$on('formValidationEmailValueChange', function ($event, newValue) {
                             element.data('initial-value', newValue);
                         });
+
                     }
                 }
             };

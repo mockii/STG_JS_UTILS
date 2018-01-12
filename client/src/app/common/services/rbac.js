@@ -273,9 +273,10 @@ angular.module('common.services.RBAC', [
         function getRbacProfileForRole(roleName) {
 
             var deferred = $q.defer(),
+                appName = getRBACAppName(),
                 url = SERVER_URL_SPACE.urls.local.rbacUserProfileForRole;
 
-            url = url + '?roleName=' + roleName;
+            url = url + '?roleName=' + roleName + '&appName=' + appName;
             url = encodeURI(url);
 
             $http.get(url).then(

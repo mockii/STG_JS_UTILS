@@ -1,0 +1,176 @@
+
+<!-- ADD ALERT MODAL -->
+<div class="modal-content" block-ui="add-alerts-modal">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="addAlertsModalController.close()"></button>
+        <h4 class="modal-title">Add Notification</h4>
+    </div>
+
+    <div class="modal-body add-alert">
+        <form name="addMaintenanceForm" role="form" action="#">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <input type="text" ng-model="addAlertsModalController.message.id" hidden>
+
+                    <div class="col-md-6">
+
+                        <!-- APPLICATION -->
+                        <div class="form-group">
+                            <label class="control-label">Application</label>
+                            <div class="input-icon-right">
+                                <input type="text" ng-model="addAlertsModalController.message.appName" ng-disabled="true">
+                            </div>
+                        </div>
+
+                        <!-- APPLICATION -->
+                       <!-- <div class="form-group">
+                            <label class="control-label">Notification Type</label>
+                            <div class="input-icon-right">
+                                <select class="bs-select form-control input-medium" required
+                                        load-select-picker data-live-search="true" data-size="8"
+                                        ng-model="addAlertsModalController.message.type"
+                                        ng-disabled="addAlertsModalController.readOnly"
+                                        ng-change="addAlertsModalController.changeNotificationType()">
+                                    <option value="" disabled selected hidden>Select application...</option>
+                                    <option ng-repeat="application in addAlertsModalController.notificationTypes | orderBy: 'name' track by $index"
+                                            value="{{ application.name }}">{{ application.name }}</option>
+                                </select>
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <label class="control-label">Notification Type</label>
+                            <div class="input-icon-right">
+                                <input type="text" ng-model="addAlertsModalController.message.category" ng-disabled="true">
+                            </div>
+                        </div>
+                        <!-- END APPLICATION -->
+
+                        <!-- START DATE -->
+                        <div class="form-group">
+                            <label class="control-label">Start Time</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control"
+                                       ng-model="addAlertsModalController.message.start_time"
+                                       ng-disabled="addAlertsModalController.readOnly"
+                                       uib-datepicker-popup="MM/dd/yyyy"
+                                       is-open="addAlertsModalController.startDatePopup.opened"
+                                       close-text="Close"
+                                       placeholder="mm/dd/yyyy" required />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default form-control" ng-click="addAlertsModalController.openStartDatePopup()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                <uib-timepicker ng-model="addAlertsModalController.message.start_time" minute-step="5" show-spinners="false" required></uib-timepicker>
+                            </div>
+                        </div>
+                        <!-- END START DATE -->
+
+                        <!-- END DATE -->
+                        <div class="form-group">
+                            <label class="control-label">End Time</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control"
+                                       ng-model="addAlertsModalController.message.end_time"
+                                       ng-disabled="addAlertsModalController.readOnly"
+                                       uib-datepicker-popup="MM/dd/yyyy"
+                                       is-open="addAlertsModalController.endDatePopup.opened"
+                                       close-text="Close"
+                                       placeholder="mm/dd/yyyy" required />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default form-control" ng-click="addAlertsModalController.openEndDatePopup()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                <uib-timepicker ng-model="addAlertsModalController.message.end_time" minute-step="5" show-spinners="false" required></uib-timepicker>
+                            </div>
+                        </div>
+                        <!-- END END DATE -->
+
+                        <!-- END DATE -->
+                        <div class="form-group" ng-if="addAlertsModalController.message.showUser">
+                            <label class="control-label">User Name</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control"
+                                       ng-model="addAlertsModalController.message.userName"
+                                       ng-disabled="addAlertsModalController.readOnly"
+                                       required />
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-if="addAlertsModalController.message.showGroup">
+                            <label class="control-label">Candidate Users</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control"
+                                       ng-model="addAlertsModalController.message.users"
+                                       ng-disabled="addAlertsModalController.readOnly"
+                                       required />
+                            </div>
+                        </div>
+                        <!-- END END DATE -->
+
+                        <!-- END DATE -->
+                        <div class="form-group" ng-if="addAlertsModalController.message.showGroup">
+                            <label class="control-label">Group Reference</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control"
+                                       ng-model="addAlertsModalController.message.gref"
+                                       ng-disabled="addAlertsModalController.readOnly"
+                                       required />
+                            </div>
+                        </div>
+                        <!-- END END DATE -->
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Headline</label>
+                            <input type="text" class="form-control"
+                                   ng-model="addAlertsModalController.message.subject"
+                                   ng-disabled="addAlertsModalController.readOnly"
+                                   maxlength="100" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Message</label>
+                            <div summernote
+                                 ng-model="addAlertsModalController.message.body"
+                                 config="addAlertsModalController.messageFieldConfig"
+                                 required
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AUDIT INFORMATION -->
+            <div class="row" ng-if="addAlertsModalController.message.id">
+                <div class="col-md-12">
+                    <div class="audit-information">
+                        <p>
+                            Created by {{ addAlertsModalController.message.created_by }} on {{ addAlertsModalController.message.created_date | date : 'M/d/yyyy h:mm a' }}
+                        </p>
+                    </div>
+                    <div class="audit-information">
+                        <p>
+                            Last modified by {{ addAlertsModalController.message.modified_by }} on {{ addAlertsModalController.message.modified_date | date : 'M/d/yyyy h:mm a' }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- END AUDIT INFORMATION -->
+
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default"
+                ng-class="{blue: addAlertsModalController.readOnly}"
+                ng-click="addAlertsModalController.close()">Close</button>
+        <button type="button" class="btn blue"
+                ng-click="addAlertsModalController.submit()"
+                ng-hide="addAlertsModalController.readOnly"
+                ng-disabled="addAlertsForm.$invalid"
+                analytics-on="click" analytics-category="Add Alerts Modal" analytics-event="Submit">Submit</button>
+    </div>
+
+</div>
+<!-- END ADD ALERTS MODAL -->

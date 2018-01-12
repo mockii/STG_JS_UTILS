@@ -20,12 +20,12 @@ module.exports = function(_appVars) {
         dynatrace = require('./dynatrace')(appConfig),
         security = require('./security')(appConfig),
         actuate = require('./actuate.js')(appConfig),
-        googlemaps = require('./googlemaps.js')(appConfig);
+        googlemaps = require('./googlemaps.js')(appConfig),
+        notification = require('./notification.js')(appConfig);
 
 
     logger.info('Initializing STG Server with the following config:');
     logger.info(JSON.stringify(appConfig));
-
 
     //setup dynatrace
     dynatrace.setup();

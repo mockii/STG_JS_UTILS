@@ -182,6 +182,7 @@ input[type="text"].ui-grid-filter-input:focus {
   float: left;
   height: 60.67px;
 }
+
 /* remove dotted line under the slash of: page 1 / 10 */
 abbr[title] {
   border-bottom: none !important;
@@ -234,11 +235,6 @@ select.ui-grid-filter-select option:focus{
 .ui-grid-row, .ui-grid-cell {
   height: auto !important;
   min-height: 30px;
-}
-
-.ui-grid-row div[role=row] {
-  display: flex ;
-  align-content: stretch;
 }
 
 /* set background color and opcacity to hide the magnify icon on filtering*/

@@ -17,7 +17,7 @@ angular.module('common.directives.STGFooter', [
             Layout.initFooter();
         }])
 
-    .directive('stgFooter', ['$location', function($location) {
+    .directive('stgFooter', ['ApplicationConfigurationService', function(ApplicationConfigurationService) {
         return {
             restrict: 'EA',
             transclude: true,
@@ -37,8 +37,7 @@ angular.module('common.directives.STGFooter', [
                 });
 
                 //hide the footer if menu=false is passed as query parameter
-                var qs = $location.search();
-                if (qs.menu === 'false') {
+                if (ApplicationConfigurationService.isMenuHidden()) {
                     $element.hide();
                 }
             }

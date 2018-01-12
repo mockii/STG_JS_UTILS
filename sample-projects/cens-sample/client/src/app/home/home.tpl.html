@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-blue bold uppercase"> Notifications </span>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- FEATURED APPLICATIONS -->
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="portlet light featured-apps">
+                                <div class="portlet-title featured-apps-title">
+                                    <div class="caption">
+                                        <span class="caption-subject font-blue uppercase bold"> User Notifications </span>
+                                    </div>
+                                    <div class="actions">
+                                        <button type="button" class="btn blue"
+                                                ng-click="homeController.createNotificationByUser()"> Create </button>
+                                    </div>
+                                </div>
+                                <div class="portlet-body featured-apps-body">
+                                    <div>
+                                        <ul class="example-animate-container">
+                                            <li class="animate-repeat" ng-repeat="model in homeController.userNotifications">
+                                                [{{$index + 1}}] {{model.subject}} - {{model.body}} .
+                                            </li>
+                                            <li class="animate-repeat" ng-if="homeController.userNotifications.length === 0">
+                                                <strong>No results found...</strong>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="portlet light featured-apps">
+                                <div class="portlet-title featured-apps-title">
+                                    <div class="caption">
+                                        <span class="caption-subject font-blue uppercase bold"> Application Notifications </span>
+                                    </div>
+                                    <div class="actions">
+                                        <button type="button" class="btn blue"
+                                                ng-click="homeController.createNotificationByApplication()"> Create </button>
+                                    </div>
+                                </div>
+                                <div class="portlet-body featured-apps-body">
+                                    <div>
+                                        <ul class="example-animate-container">
+                                            <li class="animate-repeat" ng-repeat="model in homeController.appNotifications">
+                                                [{{$index + 1}}] {{model.subject}} - {{model.body}} .
+                                            </li>
+                                            <li class="animate-repeat" ng-if="homeController.appNotifications.length === 0">
+                                                <strong>No results found...</strong>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="portlet light featured-apps">
+                                <div class="portlet-title featured-apps-title">
+                                    <div class="caption">
+                                        <span class="caption-subject font-blue uppercase bold"> Group Notifications </span>
+                                    </div>
+                                    <div class="actions">
+                                        <button type="button" class="btn blue "
+                                                ng-click="homeController.createNotificationByGroup()"> Create </button>
+                                    </div>
+                                </div>
+                                <div class="portlet-body featured-apps-body">
+                                    <div>
+                                        <ul class="example-animate-container">
+                                            <li class="animate-repeat" ng-repeat="model in homeController.groupNotifications">
+                                                [{{$index + 1}}] {{model.subject}} - {{model.body}} .
+                                            </li>
+                                            <li class="animate-repeat" ng-if="homeController.groupNotifications.length === 0">
+                                                <strong>No results found...</strong>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END FEATURED APPLICATIONS -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
